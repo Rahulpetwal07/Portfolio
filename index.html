@@ -1,261 +1,978 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Rahul Petwal | Operations & MIS Portfolio</title>
+<title>Rahul Petwal | Operations & MIS Professional</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta name="description"
+content="Rahul Petwal - Operations, MIS Reporting, Excel, Finance Operations and Business Support Professional.">
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f5f7fb;
-            color: #1f2937;
-            line-height: 1.6;
-        }
+<style>
 
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 0 20px;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        header {
-            background: #111827;
-            color: white;
-            padding: 70px 20px;
-            text-align: center;
-        }
+html{
+    scroll-behavior:smooth;
+}
 
-        header h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
-        }
+body{
+    font-family:Inter, Arial, Helvetica, sans-serif;
+    background:#f7f8fa;
+    color:#172033;
+    line-height:1.6;
+}
 
-        header p {
-            font-size: 18px;
-            color: #d1d5db;
-        }
+a{
+    text-decoration:none;
+    color:inherit;
+}
 
-        .skills {
-            margin-top: 22px;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
+.container{
+    width:min(1120px,92%);
+    margin:auto;
+}
 
-        .skill {
-            background: #374151;
-            padding: 8px 14px;
-            border-radius: 20px;
-            font-size: 14px;
-        }
+/* NAVBAR */
 
-        section {
-            padding: 55px 0;
-        }
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid #e7eaf0;
+}
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+.nav-inner{
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
 
-        .section-title h2 {
-            font-size: 30px;
-            margin-bottom: 8px;
-        }
+.logo{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    font-weight:800;
+    font-size:19px;
+}
 
-        .section-title p {
-            color: #6b7280;
-        }
+.logo-mark{
+    width:38px;
+    height:38px;
+    border-radius:11px;
+    background:#172033;
+    color:white;
+    display:grid;
+    place-items:center;
+    font-size:17px;
+}
 
-        .about {
-            background: white;
-            padding: 30px;
-            border-radius: 14px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-        }
+.nav-links{
+    display:flex;
+    gap:26px;
+    font-size:14px;
+    font-weight:600;
+    color:#596273;
+}
 
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-            gap: 22px;
-        }
+.nav-links a:hover{
+    color:#172033;
+}
 
-        .project {
-            background: white;
-            padding: 26px;
-            border-radius: 14px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-            transition: 0.2s;
-        }
+/* HERO */
 
-        .project:hover {
-            transform: translateY(-4px);
-        }
+.hero{
+    padding:90px 0 80px;
+    background:
+    radial-gradient(circle at 85% 20%,#e9eef8 0,transparent 30%),
+    #fff;
+}
 
-        .project h3 {
-            margin-bottom: 10px;
-            font-size: 20px;
-        }
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.35fr .65fr;
+    gap:60px;
+    align-items:center;
+}
 
-        .project p {
-            color: #6b7280;
-            margin-bottom: 18px;
-        }
+.badge{
+    display:inline-flex;
+    padding:7px 13px;
+    border:1px solid #dfe4ec;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:700;
+    color:#596273;
+    background:#fafbfc;
+    margin-bottom:20px;
+}
 
-        .btn {
-            display: inline-block;
-            text-decoration: none;
-            background: #111827;
-            color: white;
-            padding: 10px 18px;
-            border-radius: 8px;
-            font-size: 14px;
-        }
+.hero h1{
+    font-size:clamp(42px,6vw,68px);
+    line-height:1.05;
+    letter-spacing:-2.5px;
+    margin-bottom:20px;
+}
 
-        .btn:hover {
-            background: #374151;
-        }
+.hero h1 span{
+    color:#667085;
+}
 
-        .coming {
-            opacity: 0.65;
-        }
+.hero-sub{
+    font-size:20px;
+    color:#596273;
+    max-width:680px;
+    margin-bottom:28px;
+}
 
-        footer {
-            background: #111827;
-            color: #9ca3af;
-            text-align: center;
-            padding: 25px;
-            font-size: 14px;
-        }
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
 
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 32px;
-            }
-        }
-    </style>
+.btn{
+    padding:12px 20px;
+    border-radius:9px;
+    font-size:14px;
+    font-weight:700;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    transition:.2s;
+}
+
+.btn-primary{
+    background:#172033;
+    color:#fff;
+}
+
+.btn-primary:hover{
+    transform:translateY(-2px);
+}
+
+.btn-secondary{
+    border:1px solid #dfe4ec;
+    background:#fff;
+}
+
+.btn-secondary:hover{
+    background:#f4f5f7;
+}
+
+.profile-card{
+    background:#fff;
+    border:1px solid #e4e7ec;
+    border-radius:20px;
+    padding:28px;
+    box-shadow:0 18px 50px rgba(23,32,51,.08);
+}
+
+.profile-initial{
+    width:72px;
+    height:72px;
+    border-radius:18px;
+    background:#172033;
+    color:#fff;
+    display:grid;
+    place-items:center;
+    font-size:26px;
+    font-weight:800;
+    margin-bottom:22px;
+}
+
+.profile-card h3{
+    font-size:21px;
+    margin-bottom:5px;
+}
+
+.profile-card p{
+    color:#697386;
+    font-size:14px;
+}
+
+.contact-mini{
+    margin-top:22px;
+    padding-top:18px;
+    border-top:1px solid #edf0f4;
+}
+
+.contact-mini div{
+    font-size:13px;
+    margin:9px 0;
+    color:#596273;
+}
+
+/* SECTIONS */
+
+section{
+    padding:80px 0;
+}
+
+.section-head{
+    margin-bottom:35px;
+}
+
+.section-label{
+    text-transform:uppercase;
+    font-size:12px;
+    letter-spacing:1.8px;
+    font-weight:800;
+    color:#7a8495;
+    margin-bottom:8px;
+}
+
+.section-head h2{
+    font-size:34px;
+    letter-spacing:-1px;
+}
+
+.section-head p{
+    color:#697386;
+    max-width:680px;
+}
+
+/* ABOUT */
+
+.about{
+    background:#fff;
+    border:1px solid #e5e8ed;
+    border-radius:18px;
+    padding:34px;
+}
+
+.about p{
+    color:#596273;
+    font-size:16px;
+}
+
+/* EXPERTISE */
+
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.skill-card{
+    background:#fff;
+    border:1px solid #e5e8ed;
+    padding:22px;
+    border-radius:14px;
+    transition:.2s;
+}
+
+.skill-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 30px rgba(23,32,51,.06);
+}
+
+.skill-card h3{
+    font-size:16px;
+    margin-bottom:5px;
+}
+
+.skill-card p{
+    color:#737d8e;
+    font-size:13px;
+}
+
+/* EXPERIENCE */
+
+.timeline{
+    display:grid;
+    gap:16px;
+}
+
+.experience{
+    background:#fff;
+    border:1px solid #e5e8ed;
+    border-radius:16px;
+    padding:25px 28px;
+    display:grid;
+    grid-template-columns:180px 1fr;
+    gap:25px;
+}
+
+.experience-date{
+    font-size:13px;
+    font-weight:700;
+    color:#7a8495;
+}
+
+.experience h3{
+    font-size:19px;
+    margin-bottom:3px;
+}
+
+.company{
+    color:#667085;
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:12px;
+}
+
+.experience p{
+    color:#687285;
+    font-size:14px;
+}
+
+/* PROJECTS */
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.project{
+    background:#fff;
+    border:1px solid #e3e7ed;
+    border-radius:18px;
+    padding:28px;
+    transition:.25s;
+}
+
+.project:hover{
+    transform:translateY(-4px);
+    box-shadow:0 16px 35px rgba(23,32,51,.07);
+}
+
+.project-number{
+    font-size:12px;
+    font-weight:800;
+    color:#8992a1;
+    margin-bottom:18px;
+}
+
+.project h3{
+    font-size:21px;
+    margin-bottom:9px;
+}
+
+.project p{
+    color:#697386;
+    font-size:14px;
+    min-height:65px;
+}
+
+.project-link{
+    display:inline-flex;
+    margin-top:18px;
+    font-size:14px;
+    font-weight:800;
+}
+
+.project-link:hover{
+    text-decoration:underline;
+}
+
+.coming{
+    opacity:.7;
+}
+
+/* CONTACT */
+
+.contact-box{
+    background:#172033;
+    color:#fff;
+    border-radius:22px;
+    padding:45px;
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:30px;
+    align-items:center;
+}
+
+.contact-box h2{
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+.contact-box p{
+    color:#b9c0cc;
+}
+
+.contact-details{
+    text-align:right;
+    font-size:14px;
+    line-height:2;
+    color:#e0e4eb;
+}
+
+/* FOOTER */
+
+footer{
+    padding:28px 0;
+    border-top:1px solid #e4e7ec;
+    background:#fff;
+    color:#7a8495;
+    font-size:13px;
+}
+
+.footer-inner{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    .hero-grid{
+        grid-template-columns:1fr;
+    }
+
+    .skills-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .projects{
+        grid-template-columns:1fr;
+    }
+
+    .experience{
+        grid-template-columns:1fr;
+        gap:8px;
+    }
+
+    .contact-box{
+        grid-template-columns:1fr;
+    }
+
+    .contact-details{
+        text-align:left;
+    }
+
+    .nav-links{
+        display:none;
+    }
+}
+
+@media(max-width:500px){
+
+    .hero{
+        padding:65px 0;
+    }
+
+    .skills-grid{
+        grid-template-columns:1fr;
+    }
+
+    section{
+        padding:60px 0;
+    }
+
+    .about,
+    .project,
+    .experience{
+        padding:22px;
+    }
+
+    .contact-box{
+        padding:28px;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+    }
+}
+
+</style>
 </head>
 
 <body>
 
-<header>
-    <div class="container">
-        <h1>Rahul Petwal</h1>
+<!-- NAVIGATION -->
 
-        <p>
-            Operations & MIS | Excel | Finance Operations | Data Management
+<nav>
+<div class="container nav-inner">
+
+    <a href="#" class="logo">
+        <div class="logo-mark">RP</div>
+        Rahul Petwal
+    </a>
+
+    <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+</div>
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+<div class="container hero-grid">
+
+    <div>
+
+        <div class="badge">
+            OPEN TO REMOTE & OPERATIONS OPPORTUNITIES
+        </div>
+
+        <h1>
+            Rahul Petwal<br>
+            <span>Operations & MIS Professional</span>
+        </h1>
+
+        <p class="hero-sub">
+            Operations support, MIS reporting, Excel-based data management,
+            finance operations and practical digital workflow solutions.
         </p>
 
-        <div class="skills">
-            <span class="skill">Microsoft Excel</span>
-            <span class="skill">MIS Reporting</span>
-            <span class="skill">Operations</span>
-            <span class="skill">Data Management</span>
-            <span class="skill">Finance Operations</span>
-            <span class="skill">Documentation</span>
+        <div class="hero-buttons">
+
+            <a href="#projects" class="btn btn-primary">
+                View My Projects →
+            </a>
+
+            <a href="mailto:rahulpetwal7@gmail.com" class="btn btn-secondary">
+                Contact Me
+            </a>
+
         </div>
+
     </div>
+
+
+    <div class="profile-card">
+
+        <div class="profile-initial">
+            RP
+        </div>
+
+        <h3>Rahul Petwal</h3>
+
+        <p>
+            Operations · MIS · Excel · Finance Operations
+        </p>
+
+        <div class="contact-mini">
+
+            <div>📞 +91 9758927549</div>
+
+            <div>✉ rahulpetwal7@gmail.com</div>
+
+            <div>✉ abhinavpandit440@gmail.com</div>
+
+        </div>
+
+    </div>
+
+</div>
+
 </header>
 
-<section>
-    <div class="container">
 
-        <div class="section-title">
-            <h2>About Me</h2>
-            <p>Professional profile & practical projects</p>
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="container">
+
+    <div class="section-head">
+
+        <div class="section-label">Profile</div>
+
+        <h2>About Me</h2>
+
+        <p>
+            A practical, process-focused professional with experience
+            supporting business operations, reporting and finance-related workflows.
+        </p>
+
+    </div>
+
+    <div class="about">
+
+        <p>
+            I have experience across operations, MIS reporting, Excel-based
+            data management, documentation, finance operations and customer
+            support processes. My work involves maintaining accurate records,
+            preparing reports, coordinating operational activities and building
+            practical digital tools that make routine business processes easier.
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- EXPERTISE -->
+
+<section id="expertise">
+
+<div class="container">
+
+    <div class="section-head">
+
+        <div class="section-label">Core Expertise</div>
+
+        <h2>What I Work With</h2>
+
+    </div>
+
+
+    <div class="skills-grid">
+
+        <div class="skill-card">
+            <h3>Operations</h3>
+            <p>Process coordination, daily operations and workflow support.</p>
         </div>
 
-        <div class="about">
+        <div class="skill-card">
+            <h3>MIS & Reporting</h3>
+            <p>Reports, data organization, tracking and business information.</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Microsoft Excel</h3>
+            <p>Data handling, formulas, formatting and operational reports.</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Finance Operations</h3>
+            <p>Finance-related records, payment workflows and documentation.</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Data Management</h3>
+            <p>Maintaining structured and accurate operational information.</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Documentation</h3>
+            <p>Business documents, formats, records and process documentation.</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Loan Operations</h3>
+            <p>Loan processing support, documentation and customer records.</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Digital Tools</h3>
+            <p>Basic HTML, CSS and practical business workflow solutions.</p>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- EXPERIENCE -->
+
+<section id="experience">
+
+<div class="container">
+
+    <div class="section-head">
+
+        <div class="section-label">Career</div>
+
+        <h2>Professional Experience</h2>
+
+    </div>
+
+
+    <div class="timeline">
+
+        <div class="experience">
+
+            <div class="experience-date">
+                2024 — Present
+            </div>
+
+            <div>
+
+                <h3>Operations / MIS Support</h3>
+
+                <div class="company">
+                    Dhandhanya
+                </div>
+
+                <p>
+                    Supporting business operations, MIS/reporting, Excel-based
+                    data management, documentation, finance-related processes
+                    and day-to-day operational coordination.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="experience">
+
+            <div class="experience-date">
+                2023 — 2024
+            </div>
+
+            <div>
+
+                <h3>Operations / Finance Support</h3>
+
+                <div class="company">
+                    Saviskaar
+                </div>
+
+                <p>
+                    Supported operational activities, documentation,
+                    customer-related processes and finance/business workflows.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="experience">
+
+            <div class="experience-date">
+                2019 — 2021
+            </div>
+
+            <div>
+
+                <h3>Operations Support</h3>
+
+                <div class="company">
+                    Napino
+                </div>
+
+                <p>
+                    Worked in an operational environment with responsibilities
+                    involving process support, coordination and workplace documentation.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<div class="container">
+
+    <div class="section-head">
+
+        <div class="section-label">Practical Work</div>
+
+        <h2>Selected Projects</h2>
+
+        <p>
+            Practical digital tools and workflow solutions created
+            to simplify routine business processes.
+        </p>
+
+    </div>
+
+
+    <div class="projects">
+
+
+        <!-- PROJECT 01 -->
+
+        <div class="project">
+
+            <div class="project-number">
+                PROJECT 01 · WEB TOOL
+            </div>
+
+            <h3>Payment Voucher System</h3>
+
             <p>
-                I have experience in operations, MIS reporting, finance operations,
-                documentation, data management and customer-related processes.
-                I work with Microsoft Excel, reporting tools and digital workflows
-                to manage and organize business information efficiently.
+                Web-based payment voucher system for preparing and
+                managing payment records in a structured format.
             </p>
+
+            <a href="payment-voucher/" class="project-link">
+                View Live Project →
+            </a>
+
+        </div>
+
+
+        <!-- PROJECT 02 -->
+
+        <div class="project">
+
+            <div class="project-number">
+                PROJECT 02 · AUTOMATION
+            </div>
+
+            <h3>Daily Payment Collection & Reporting System</h3>
+
+            <p>
+                Practical HTML-based tool designed for daily payment
+                collection, data management and reporting workflows.
+            </p>
+
+            <a href="daily-payment-report.html" class="project-link">
+                View Live Project →
+            </a>
+
+        </div>
+
+
+        <!-- PROJECT 03 -->
+
+        <div class="project">
+
+            <div class="project-number">
+                PROJECT 03 · FINANCE AUTOMATION
+            </div>
+
+            <h3>Bank Deposit & NEFT Payment Automation</h3>
+
+            <p>
+                Digital workflow tool for preparing structured bank
+                deposit and NEFT payment-related information.
+            </p>
+
+            <a href="bank-neft-automation.html" class="project-link">
+                View Live Project →
+            </a>
+
+        </div>
+
+
+        <!-- PROJECT 04 -->
+
+        <div class="project">
+
+            <div class="project-number">
+                PROJECT 04 · EMAIL DESIGN
+            </div>
+
+            <h3>Professional HTML Email Signature</h3>
+
+            <p>
+                Responsive HTML email signature designed for
+                professional business communication and email use.
+            </p>
+
+            <a href="email-signature/" class="project-link">
+                View Live Project →
+            </a>
+
+        </div>
+
+
+        <!-- PROJECT 05 -->
+
+        <div class="project coming">
+
+            <div class="project-number">
+                PROJECT 05 · DATA ANALYTICS
+            </div>
+
+            <h3>MIS Dashboard</h3>
+
+            <p>
+                Interactive MIS reporting and business data analysis
+                dashboard — currently under development.
+            </p>
+
+            <span class="project-link">
+                Coming Soon
+            </span>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="container">
+
+    <div class="contact-box">
+
+        <div>
+
+            <div class="section-label" style="color:#aeb6c4;">
+                Contact
+            </div>
+
+            <h2>Let's Connect</h2>
+
+            <p>
+                Available for Operations, MIS, Excel, Business Support
+                and remote opportunities.
+            </p>
+
+        </div>
+
+
+        <div class="contact-details">
+
+            <div>+91 9758927549</div>
+
+            <div>rahulpetwal7@gmail.com</div>
+
+            <div>abhinavpandit440@gmail.com</div>
+
         </div>
 
     </div>
+
+</div>
+
 </section>
 
-<section>
-    <div class="container">
-
-        <div class="section-title">
-            <h2>My Projects</h2>
-            <p>Practical tools and automation projects</p>
-        </div>
-
-        <div class="projects">
-
-            <div class="project">
-                <h3>Payment Voucher System</h3>
-
-                <p>
-                    Web-based payment voucher system for creating
-                    and managing payment records efficiently.
-                </p>
-
-                <a class="btn" href="payment-voucher/">
-                    View Project →
-                </a>
-            </div>
-
-            <div class="project">
-                <h3>Daily Payment Collection & Reporting System</h3>
-
-                <p>
-                    Practical automation tool for daily payment
-                    collection, data management and reporting.
-                </p>
-
-                <a class="btn" href="daily-payment-report.html">
-                    View Project →
-                </a>
-            </div>
-
-            <div class="project">
-                <h3>Bank Deposit & NEFT Payment Automation</h3>
-
-                <p>
-                    Digital workflow tool for preparing bank deposit
-                    and NEFT payment-related information.
-                </p>
-
-                <a class="btn" href="bank-neft-automation.html">
-                    View Project →
-                </a>
-            </div>
-
-            <div class="project coming">
-                <h3>MIS Dashboard</h3>
-
-                <p>
-                    Interactive MIS reporting and business
-                    data analysis dashboard.
-                </p>
-
-                <a class="btn" href="#">
-                    Coming Soon
-                </a>
-            </div>
-
-        </div>
-
-    </div>
-</section>
 
 <footer>
-    © 2026 Rahul Petwal · Professional Portfolio
+
+<div class="container footer-inner">
+
+    <div>
+        © 2026 Rahul Petwal
+    </div>
+
+    <div>
+        Operations · MIS · Excel · Finance Operations
+    </div>
+
+</div>
+
 </footer>
+
 
 </body>
 </html>
