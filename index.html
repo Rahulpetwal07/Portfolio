@@ -6,11 +6,9 @@
 
 <title>Rahul Petwal | Operations & MIS Professional</title>
 
-<meta name="description"
-content="Rahul Petwal - Operations, MIS Reporting, Excel, Finance Operations and Business Support Professional.">
+<meta name="description" content="Rahul Petwal - Operations, MIS Reporting, Excel, Finance Operations and Business Support Professional.">
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -22,8 +20,8 @@ html{
 }
 
 body{
-    font-family:Inter, Arial, Helvetica, sans-serif;
-    background:#f7f8fa;
+    font-family:Inter,Arial,Helvetica,sans-serif;
+    background:#f6f7f9;
     color:#172033;
     line-height:1.6;
 }
@@ -38,15 +36,15 @@ a{
     margin:auto;
 }
 
-/* NAVBAR */
+/* ================= NAVBAR ================= */
 
 nav{
     position:sticky;
     top:0;
     z-index:1000;
     background:rgba(255,255,255,.94);
-    backdrop-filter:blur(12px);
-    border-bottom:1px solid #e7eaf0;
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid #e6e9ee;
 }
 
 .nav-inner{
@@ -56,69 +54,66 @@ nav{
     justify-content:space-between;
 }
 
-.logo{
+.brand{
     display:flex;
     align-items:center;
     gap:11px;
     font-weight:800;
-    font-size:19px;
+    font-size:18px;
 }
 
-.logo-mark{
-    width:38px;
-    height:38px;
-    border-radius:11px;
-    background:#172033;
-    color:white;
-    display:grid;
-    place-items:center;
-    font-size:17px;
+.brand img{
+    width:40px;
+    height:40px;
+    object-fit:contain;
+    border-radius:9px;
 }
 
 .nav-links{
     display:flex;
-    gap:26px;
+    gap:25px;
+    color:#667085;
     font-size:14px;
-    font-weight:600;
-    color:#596273;
+    font-weight:650;
 }
 
 .nav-links a:hover{
-    color:#172033;
+    color:#111827;
 }
 
-/* HERO */
+/* ================= HERO ================= */
 
 .hero{
-    padding:90px 0 80px;
+    padding:90px 0 85px;
     background:
-    radial-gradient(circle at 85% 20%,#e9eef8 0,transparent 30%),
-    #fff;
+        radial-gradient(circle at 85% 15%,#e7edf7 0,transparent 31%),
+        #fff;
 }
 
 .hero-grid{
     display:grid;
-    grid-template-columns:1.35fr .65fr;
+    grid-template-columns:1.3fr .7fr;
     gap:60px;
     align-items:center;
 }
 
 .badge{
-    display:inline-flex;
-    padding:7px 13px;
-    border:1px solid #dfe4ec;
-    border-radius:30px;
-    font-size:13px;
-    font-weight:700;
-    color:#596273;
+    display:inline-block;
+    padding:7px 14px;
+    border:1px solid #dce1e8;
     background:#fafbfc;
+    border-radius:30px;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:.5px;
+    color:#667085;
     margin-bottom:20px;
 }
 
 .hero h1{
     font-size:clamp(42px,6vw,68px);
     line-height:1.05;
-    letter-spacing:-2.5px;
+    letter-spacing:-2.8px;
     margin-bottom:20px;
 }
 
@@ -126,27 +121,27 @@ nav{
     color:#667085;
 }
 
-.hero-sub{
-    font-size:20px;
-    color:#596273;
-    max-width:680px;
+.hero-description{
+    max-width:700px;
+    color:#5f6979;
+    font-size:19px;
     margin-bottom:28px;
 }
 
-.hero-buttons{
+.hero-actions{
     display:flex;
     gap:12px;
     flex-wrap:wrap;
 }
 
 .btn{
-    padding:12px 20px;
-    border-radius:9px;
-    font-size:14px;
-    font-weight:700;
     display:inline-flex;
     align-items:center;
-    gap:8px;
+    justify-content:center;
+    padding:12px 19px;
+    border-radius:9px;
+    font-size:14px;
+    font-weight:750;
     transition:.2s;
 }
 
@@ -157,155 +152,164 @@ nav{
 
 .btn-primary:hover{
     transform:translateY(-2px);
+    background:#27344c;
 }
 
-.btn-secondary{
-    border:1px solid #dfe4ec;
+.btn-outline{
+    border:1px solid #d9dee6;
     background:#fff;
 }
 
-.btn-secondary:hover{
-    background:#f4f5f7;
+.btn-outline:hover{
+    background:#f3f4f6;
 }
+
+/* ================= PROFILE CARD ================= */
 
 .profile-card{
     background:#fff;
-    border:1px solid #e4e7ec;
-    border-radius:20px;
-    padding:28px;
-    box-shadow:0 18px 50px rgba(23,32,51,.08);
+    border:1px solid #e1e5eb;
+    border-radius:22px;
+    padding:30px;
+    box-shadow:0 20px 55px rgba(23,32,51,.09);
 }
 
-.profile-initial{
-    width:72px;
-    height:72px;
+.profile-logo{
+    width:82px;
+    height:82px;
     border-radius:18px;
-    background:#172033;
-    color:#fff;
-    display:grid;
-    place-items:center;
-    font-size:26px;
-    font-weight:800;
-    margin-bottom:22px;
+    object-fit:contain;
+    margin-bottom:20px;
 }
 
 .profile-card h3{
-    font-size:21px;
-    margin-bottom:5px;
+    font-size:23px;
+    margin-bottom:4px;
 }
 
-.profile-card p{
+.profile-card .role{
     color:#697386;
     font-size:14px;
 }
 
 .contact-mini{
+    border-top:1px solid #edf0f3;
     margin-top:22px;
-    padding-top:18px;
-    border-top:1px solid #edf0f4;
+    padding-top:17px;
 }
 
-.contact-mini div{
-    font-size:13px;
-    margin:9px 0;
+.contact-mini a{
+    display:block;
     color:#596273;
+    font-size:13px;
+    margin:8px 0;
+    word-break:break-word;
 }
 
-/* SECTIONS */
+.contact-mini a:hover{
+    color:#111827;
+}
+
+/* ================= SECTIONS ================= */
 
 section{
     padding:80px 0;
 }
 
-.section-head{
-    margin-bottom:35px;
-}
-
 .section-label{
+    color:#7a8494;
     text-transform:uppercase;
-    font-size:12px;
     letter-spacing:1.8px;
-    font-weight:800;
-    color:#7a8495;
+    font-size:11px;
+    font-weight:850;
     margin-bottom:8px;
 }
 
-.section-head h2{
-    font-size:34px;
+.section-title{
+    font-size:35px;
     letter-spacing:-1px;
+    margin-bottom:9px;
 }
 
-.section-head p{
+.section-description{
     color:#697386;
-    max-width:680px;
+    max-width:720px;
 }
 
-/* ABOUT */
+/* ================= ABOUT ================= */
 
-.about{
+.about-box{
+    margin-top:32px;
     background:#fff;
-    border:1px solid #e5e8ed;
+    border:1px solid #e2e6ec;
     border-radius:18px;
-    padding:34px;
+    padding:32px;
 }
 
-.about p{
+.about-box p{
     color:#596273;
     font-size:16px;
 }
 
-/* EXPERTISE */
+/* ================= EXPERTISE ================= */
 
 .skills-grid{
+    margin-top:32px;
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:15px;
+    gap:16px;
 }
 
-.skill-card{
+.skill{
     background:#fff;
-    border:1px solid #e5e8ed;
+    border:1px solid #e2e6ec;
+    border-radius:15px;
     padding:22px;
-    border-radius:14px;
     transition:.2s;
 }
 
-.skill-card:hover{
+.skill:hover{
     transform:translateY(-3px);
-    box-shadow:0 12px 30px rgba(23,32,51,.06);
+    box-shadow:0 14px 35px rgba(23,32,51,.07);
 }
 
-.skill-card h3{
+.skill-icon{
+    font-size:20px;
+    margin-bottom:13px;
+}
+
+.skill h3{
     font-size:16px;
     margin-bottom:5px;
 }
 
-.skill-card p{
-    color:#737d8e;
+.skill p{
+    color:#737d8d;
     font-size:13px;
 }
 
-/* EXPERIENCE */
+/* ================= EXPERIENCE ================= */
 
 .timeline{
+    margin-top:32px;
     display:grid;
-    gap:16px;
+    gap:17px;
 }
 
 .experience{
     background:#fff;
-    border:1px solid #e5e8ed;
-    border-radius:16px;
-    padding:25px 28px;
+    border:1px solid #e2e6ec;
+    border-radius:17px;
+    padding:27px;
     display:grid;
-    grid-template-columns:180px 1fr;
+    grid-template-columns:170px 1fr;
     gap:25px;
 }
 
 .experience-date{
+    color:#7a8494;
     font-size:13px;
-    font-weight:700;
-    color:#7a8495;
+    font-weight:800;
 }
 
 .experience h3{
@@ -316,8 +320,8 @@ section{
 .company{
     color:#667085;
     font-size:14px;
-    font-weight:600;
-    margin-bottom:12px;
+    font-weight:700;
+    margin-bottom:10px;
 }
 
 .experience p{
@@ -325,9 +329,10 @@ section{
     font-size:14px;
 }
 
-/* PROJECTS */
+/* ================= PROJECTS ================= */
 
 .projects{
+    margin-top:32px;
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:20px;
@@ -335,7 +340,7 @@ section{
 
 .project{
     background:#fff;
-    border:1px solid #e3e7ed;
+    border:1px solid #e1e5eb;
     border-radius:18px;
     padding:28px;
     transition:.25s;
@@ -343,25 +348,27 @@ section{
 
 .project:hover{
     transform:translateY(-4px);
-    box-shadow:0 16px 35px rgba(23,32,51,.07);
+    box-shadow:0 18px 40px rgba(23,32,51,.08);
 }
 
 .project-number{
-    font-size:12px;
-    font-weight:800;
-    color:#8992a1;
-    margin-bottom:18px;
+    color:#8992a0;
+    font-size:11px;
+    font-weight:850;
+    letter-spacing:1px;
+    margin-bottom:17px;
 }
 
 .project h3{
     font-size:21px;
-    margin-bottom:9px;
+    line-height:1.3;
+    margin-bottom:10px;
 }
 
 .project p{
     color:#697386;
     font-size:14px;
-    min-height:65px;
+    min-height:68px;
 }
 
 .project-link{
@@ -376,10 +383,14 @@ section{
 }
 
 .coming{
-    opacity:.7;
+    opacity:.65;
 }
 
-/* CONTACT */
+/* ================= CONTACT ================= */
+
+.contact-section{
+    padding-bottom:90px;
+}
 
 .contact-box{
     background:#172033;
@@ -388,33 +399,40 @@ section{
     padding:45px;
     display:grid;
     grid-template-columns:1fr auto;
-    gap:30px;
+    gap:35px;
     align-items:center;
 }
 
+.contact-box .section-label{
+    color:#aeb7c6;
+}
+
 .contact-box h2{
-    font-size:32px;
+    font-size:34px;
     margin-bottom:8px;
 }
 
 .contact-box p{
-    color:#b9c0cc;
+    color:#b9c1ce;
 }
 
 .contact-details{
     text-align:right;
     font-size:14px;
     line-height:2;
-    color:#e0e4eb;
 }
 
-/* FOOTER */
+.contact-details a:hover{
+    text-decoration:underline;
+}
+
+/* ================= FOOTER ================= */
 
 footer{
-    padding:28px 0;
-    border-top:1px solid #e4e7ec;
     background:#fff;
-    color:#7a8495;
+    border-top:1px solid #e4e7ec;
+    padding:27px 0;
+    color:#7a8494;
     font-size:13px;
 }
 
@@ -424,9 +442,13 @@ footer{
     gap:20px;
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
 
 @media(max-width:850px){
+
+    .nav-links{
+        display:none;
+    }
 
     .hero-grid{
         grid-template-columns:1fr;
@@ -452,27 +474,23 @@ footer{
     .contact-details{
         text-align:left;
     }
-
-    .nav-links{
-        display:none;
-    }
 }
 
-@media(max-width:500px){
+@media(max-width:520px){
 
     .hero{
         padding:65px 0;
-    }
-
-    .skills-grid{
-        grid-template-columns:1fr;
     }
 
     section{
         padding:60px 0;
     }
 
-    .about,
+    .skills-grid{
+        grid-template-columns:1fr;
+    }
+
+    .about-box,
     .project,
     .experience{
         padding:22px;
@@ -497,17 +515,22 @@ footer{
 <nav>
 <div class="container nav-inner">
 
-    <a href="#" class="logo">
-        <div class="logo-mark">RP</div>
-        Rahul Petwal
+    <a href="#" class="brand">
+
+        <img src="dhandhanya-logo.png" alt="Dhandhanya Logo">
+
+        <span>Rahul Petwal</span>
+
     </a>
 
     <div class="nav-links">
+
         <a href="#about">About</a>
         <a href="#expertise">Expertise</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
+
     </div>
 
 </div>
@@ -531,19 +554,20 @@ footer{
             <span>Operations & MIS Professional</span>
         </h1>
 
-        <p class="hero-sub">
-            Operations support, MIS reporting, Excel-based data management,
-            finance operations and practical digital workflow solutions.
+        <p class="hero-description">
+            Operations support, MIS reporting, Microsoft Excel,
+            finance operations, data management and practical
+            digital workflow solutions.
         </p>
 
-        <div class="hero-buttons">
+        <div class="hero-actions">
 
             <a href="#projects" class="btn btn-primary">
-                View My Projects →
+                View Projects →
             </a>
 
-            <a href="mailto:rahulpetwal7@gmail.com" class="btn btn-secondary">
-                Contact Me
+            <a href="mailto:rahulpetwal7@gmail.com" class="btn btn-outline">
+                Email Me
             </a>
 
         </div>
@@ -553,23 +577,31 @@ footer{
 
     <div class="profile-card">
 
-        <div class="profile-initial">
-            RP
-        </div>
+        <img
+            src="dhandhanya-logo.png"
+            class="profile-logo"
+            alt="Professional Logo"
+        >
 
         <h3>Rahul Petwal</h3>
 
-        <p>
+        <div class="role">
             Operations · MIS · Excel · Finance Operations
-        </p>
+        </div>
 
         <div class="contact-mini">
 
-            <div>📞 +91 9758927549</div>
+            <a href="tel:+919758927549">
+                📞 +91 9758927549
+            </a>
 
-            <div>✉ rahulpetwal7@gmail.com</div>
+            <a href="mailto:rahulpetwal7@gmail.com">
+                ✉ rahulpetwal7@gmail.com
+            </a>
 
-            <div>✉ abhinavpandit440@gmail.com</div>
+            <a href="mailto:abhinavpandit440@gmail.com">
+                ✉ abhinavpandit440@gmail.com
+            </a>
 
         </div>
 
@@ -586,27 +618,25 @@ footer{
 
 <div class="container">
 
-    <div class="section-head">
+    <div class="section-label">Professional Profile</div>
 
-        <div class="section-label">Profile</div>
+    <h2 class="section-title">About Me</h2>
 
-        <h2>About Me</h2>
+    <p class="section-description">
+        A practical and process-focused professional with experience
+        supporting business operations, reporting, finance-related
+        workflows and data management.
+    </p>
 
-        <p>
-            A practical, process-focused professional with experience
-            supporting business operations, reporting and finance-related workflows.
-        </p>
-
-    </div>
-
-    <div class="about">
+    <div class="about-box">
 
         <p>
-            I have experience across operations, MIS reporting, Excel-based
-            data management, documentation, finance operations and customer
-            support processes. My work involves maintaining accurate records,
-            preparing reports, coordinating operational activities and building
-            practical digital tools that make routine business processes easier.
+            I have experience across operations, MIS reporting,
+            Excel-based data management, documentation, finance
+            operations and customer support processes. My work
+            involves maintaining accurate records, preparing reports,
+            coordinating operational activities and creating practical
+            digital tools that simplify routine business processes.
         </p>
 
     </div>
@@ -622,55 +652,80 @@ footer{
 
 <div class="container">
 
-    <div class="section-head">
+    <div class="section-label">Core Capabilities</div>
 
-        <div class="section-label">Core Expertise</div>
+    <h2 class="section-title">What I Work With</h2>
 
-        <h2>What I Work With</h2>
-
-    </div>
+    <p class="section-description">
+        Practical skills developed through professional work
+        and business process projects.
+    </p>
 
 
     <div class="skills-grid">
 
-        <div class="skill-card">
+        <div class="skill">
+            <div class="skill-icon">⚙️</div>
             <h3>Operations</h3>
-            <p>Process coordination, daily operations and workflow support.</p>
+            <p>
+                Process coordination, daily operations and workflow support.
+            </p>
         </div>
 
-        <div class="skill-card">
+        <div class="skill">
+            <div class="skill-icon">📊</div>
             <h3>MIS & Reporting</h3>
-            <p>Reports, data organization, tracking and business information.</p>
+            <p>
+                Reporting, data organization, tracking and business information.
+            </p>
         </div>
 
-        <div class="skill-card">
+        <div class="skill">
+            <div class="skill-icon">📈</div>
             <h3>Microsoft Excel</h3>
-            <p>Data handling, formulas, formatting and operational reports.</p>
+            <p>
+                Data handling, formulas, formatting and operational reporting.
+            </p>
         </div>
 
-        <div class="skill-card">
+        <div class="skill">
+            <div class="skill-icon">💼</div>
             <h3>Finance Operations</h3>
-            <p>Finance-related records, payment workflows and documentation.</p>
+            <p>
+                Payment workflows, records and finance-related documentation.
+            </p>
         </div>
 
-        <div class="skill-card">
+        <div class="skill">
+            <div class="skill-icon">🗂️</div>
             <h3>Data Management</h3>
-            <p>Maintaining structured and accurate operational information.</p>
+            <p>
+                Maintaining structured, accurate and usable business data.
+            </p>
         </div>
 
-        <div class="skill-card">
+        <div class="skill">
+            <div class="skill-icon">📄</div>
             <h3>Documentation</h3>
-            <p>Business documents, formats, records and process documentation.</p>
+            <p>
+                Business documents, records, formats and process documentation.
+            </p>
         </div>
 
-        <div class="skill-card">
+        <div class="skill">
+            <div class="skill-icon">💳</div>
             <h3>Loan Operations</h3>
-            <p>Loan processing support, documentation and customer records.</p>
+            <p>
+                Loan processing support, documentation and customer records.
+            </p>
         </div>
 
-        <div class="skill-card">
+        <div class="skill">
+            <div class="skill-icon">💻</div>
             <h3>Digital Tools</h3>
-            <p>Basic HTML, CSS and practical business workflow solutions.</p>
+            <p>
+                Basic HTML/CSS and practical business workflow solutions.
+            </p>
         </div>
 
     </div>
@@ -686,16 +741,12 @@ footer{
 
 <div class="container">
 
-    <div class="section-head">
+    <div class="section-label">Professional Journey</div>
 
-        <div class="section-label">Career</div>
-
-        <h2>Professional Experience</h2>
-
-    </div>
-
+    <h2 class="section-title">Experience</h2>
 
     <div class="timeline">
+
 
         <div class="experience">
 
@@ -705,16 +756,17 @@ footer{
 
             <div>
 
-                <h3>Operations / MIS Support</h3>
+                <h3>Operations & MIS Support</h3>
 
                 <div class="company">
                     Dhandhanya
                 </div>
 
                 <p>
-                    Supporting business operations, MIS/reporting, Excel-based
-                    data management, documentation, finance-related processes
-                    and day-to-day operational coordination.
+                    Supporting business operations, MIS reporting,
+                    Excel-based data management, documentation,
+                    finance-related processes and day-to-day
+                    operational coordination.
                 </p>
 
             </div>
@@ -730,7 +782,7 @@ footer{
 
             <div>
 
-                <h3>Operations / Finance Support</h3>
+                <h3>Operations & Finance Support</h3>
 
                 <div class="company">
                     Saviskaar
@@ -738,7 +790,8 @@ footer{
 
                 <p>
                     Supported operational activities, documentation,
-                    customer-related processes and finance/business workflows.
+                    customer-related processes and finance/business
+                    workflows.
                 </p>
 
             </div>
@@ -761,8 +814,9 @@ footer{
                 </div>
 
                 <p>
-                    Worked in an operational environment with responsibilities
-                    involving process support, coordination and workplace documentation.
+                    Worked in an operational environment involving
+                    process support, coordination and workplace
+                    documentation.
                 </p>
 
             </div>
@@ -782,24 +836,18 @@ footer{
 
 <div class="container">
 
-    <div class="section-head">
+    <div class="section-label">Practical Work</div>
 
-        <div class="section-label">Practical Work</div>
+    <h2 class="section-title">Selected Projects</h2>
 
-        <h2>Selected Projects</h2>
-
-        <p>
-            Practical digital tools and workflow solutions created
-            to simplify routine business processes.
-        </p>
-
-    </div>
+    <p class="section-description">
+        Practical digital tools and workflow solutions created
+        to simplify routine business processes.
+    </p>
 
 
     <div class="projects">
 
-
-        <!-- PROJECT 01 -->
 
         <div class="project">
 
@@ -810,8 +858,8 @@ footer{
             <h3>Payment Voucher System</h3>
 
             <p>
-                Web-based payment voucher system for preparing and
-                managing payment records in a structured format.
+                Web-based payment voucher system for preparing
+                and managing payment records in a structured format.
             </p>
 
             <a href="payment-voucher/" class="project-link">
@@ -820,8 +868,6 @@ footer{
 
         </div>
 
-
-        <!-- PROJECT 02 -->
 
         <div class="project">
 
@@ -832,7 +878,7 @@ footer{
             <h3>Daily Payment Collection & Reporting System</h3>
 
             <p>
-                Practical HTML-based tool designed for daily payment
+                HTML-based business tool designed for daily payment
                 collection, data management and reporting workflows.
             </p>
 
@@ -843,8 +889,6 @@ footer{
         </div>
 
 
-        <!-- PROJECT 03 -->
-
         <div class="project">
 
             <div class="project-number">
@@ -854,8 +898,8 @@ footer{
             <h3>Bank Deposit & NEFT Payment Automation</h3>
 
             <p>
-                Digital workflow tool for preparing structured bank
-                deposit and NEFT payment-related information.
+                Digital workflow tool for preparing structured
+                bank deposit and NEFT payment-related information.
             </p>
 
             <a href="bank-neft-automation.html" class="project-link">
@@ -864,8 +908,6 @@ footer{
 
         </div>
 
-
-        <!-- PROJECT 04 -->
 
         <div class="project">
 
@@ -876,8 +918,8 @@ footer{
             <h3>Professional HTML Email Signature</h3>
 
             <p>
-                Responsive HTML email signature designed for
-                professional business communication and email use.
+                Professional HTML email signature designed for
+                business communication and email use.
             </p>
 
             <a href="email-signature/" class="project-link">
@@ -886,8 +928,6 @@ footer{
 
         </div>
 
-
-        <!-- PROJECT 05 -->
 
         <div class="project coming">
 
@@ -898,8 +938,8 @@ footer{
             <h3>MIS Dashboard</h3>
 
             <p>
-                Interactive MIS reporting and business data analysis
-                dashboard — currently under development.
+                Interactive MIS reporting and business data
+                analysis dashboard — currently under development.
             </p>
 
             <span class="project-link">
@@ -918,7 +958,7 @@ footer{
 
 <!-- CONTACT -->
 
-<section id="contact">
+<section id="contact" class="contact-section">
 
 <div class="container">
 
@@ -926,14 +966,14 @@ footer{
 
         <div>
 
-            <div class="section-label" style="color:#aeb6c4;">
+            <div class="section-label">
                 Contact
             </div>
 
             <h2>Let's Connect</h2>
 
             <p>
-                Available for Operations, MIS, Excel, Business Support
+                Open to Operations, MIS, Excel, Business Support
                 and remote opportunities.
             </p>
 
@@ -942,11 +982,23 @@ footer{
 
         <div class="contact-details">
 
-            <div>+91 9758927549</div>
+            <div>
+                <a href="tel:+919758927549">
+                    +91 9758927549
+                </a>
+            </div>
 
-            <div>rahulpetwal7@gmail.com</div>
+            <div>
+                <a href="mailto:rahulpetwal7@gmail.com">
+                    rahulpetwal7@gmail.com
+                </a>
+            </div>
 
-            <div>abhinavpandit440@gmail.com</div>
+            <div>
+                <a href="mailto:abhinavpandit440@gmail.com">
+                    abhinavpandit440@gmail.com
+                </a>
+            </div>
 
         </div>
 
@@ -956,6 +1008,8 @@ footer{
 
 </section>
 
+
+<!-- FOOTER -->
 
 <footer>
 
@@ -972,7 +1026,6 @@ footer{
 </div>
 
 </footer>
-
 
 </body>
 </html>
