@@ -1,0 +1,2278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Daily Payment Collection Report</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:#f2f2f2;
+    color:#111;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+.container{
+    width:96%;
+    max-width:1400px;
+    margin:20px auto;
+}
+
+.panel{
+    background:#fff;
+    border:1px solid #aaa;
+    padding:18px;
+    margin-bottom:15px;
+}
+
+h1{
+    margin:0 0 5px;
+    font-size:22px;
+}
+
+.subtitle{
+    font-size:12px;
+    color:#555;
+    margin-bottom:18px;
+}
+
+.row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    align-items:center;
+    margin-bottom:12px;
+}
+
+button{
+    border:1px solid #222;
+    background:#fff;
+    color:#111;
+    padding:9px 14px;
+    cursor:pointer;
+    font-weight:bold;
+    border-radius:4px;
+}
+
+button:hover{
+    background:#eee;
+}
+
+button.primary{
+    background:#111;
+    color:#fff;
+}
+
+button:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+}
+
+input[type=file]{
+    border:1px solid #999;
+    padding:7px;
+    background:#fff;
+}
+
+select{
+    padding:8px;
+    border:1px solid #999;
+    background:#fff;
+}
+
+.status{
+    font-size:13px;
+    margin-top:8px;
+    padding:8px;
+    border:1px solid #ccc;
+    background:#fafafa;
+}
+
+.section-title{
+    font-weight:bold;
+    margin:15px 0 8px;
+    font-size:14px;
+}
+
+.branch-list,
+.header-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    max-height:230px;
+    overflow:auto;
+    padding:10px;
+    border:1px solid #bbb;
+    background:#fafafa;
+}
+
+.check-item{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    border:1px solid #ccc;
+    background:#fff;
+    padding:6px 8px;
+    font-size:12px;
+}
+
+.header-buttons{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:8px;
+}
+
+.summary{
+    display:flex;
+    flex-wrap:wrap;
+    gap:25px;
+    border:1px solid #aaa;
+    padding:10px;
+    margin-top:12px;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.report{
+    background:#fff;
+    border:1px solid #aaa;
+    padding:15px;
+}
+
+.report-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    border-bottom:2px solid #111;
+    padding-bottom:7px;
+    margin-bottom:10px;
+}
+
+.report-title{
+    font-size:18px;
+    font-weight:bold;
+}
+
+.report-date{
+    font-size:13px;
+    font-weight:bold;
+}
+
+.table-wrap{
+    width:100%;
+    overflow:auto;
+}
+
+table{
+    border-collapse:collapse;
+    width:100%;
+    color:#111;
+    background:#fff;
+}
+
+th,
+td{
+    border:1px solid #222;
+    padding:5px 6px;
+    font-size:11px;
+    white-space:nowrap;
+    text-align:left;
+}
+
+th{
+    font-weight:bold;
+    background:#fff;
+}
+
+.branch-start td{
+    border-top:2px solid #111;
+}
+
+.total-row{
+    border-top:2px solid #111;
+    font-weight:bold;
+}
+
+.total-row td{
+    font-weight:bold;
+    border:1px solid #111;
+}
+
+.hidden{
+    display:none;
+}
+
+@media print{
+
+    @page{
+        size:A4 landscape;
+        margin:4mm;
+    }
+
+    html,
+    body{
+        background:#fff !important;
+        color:#000 !important;
+        margin:0 !important;
+        padding:0 !important;
+    }
+
+    .no-print{
+        display:none !important;
+    }
+
+    .container{
+        width:100% !important;
+        max-width:none !important;
+        margin:0 !important;
+        padding:0 !important;
+    }
+
+    .report{
+        border:0 !important;
+        padding:0 !important;
+        margin:0 !important;
+        width:100% !important;
+    }
+
+    .report-head{
+        margin-bottom:2mm !important;
+        padding-bottom:1.5mm !important;
+        border-bottom:1.5px solid #000 !important;
+    }
+
+    .report-title{
+        font-size:10pt !important;
+    }
+
+    .report-date{
+        font-size:8pt !important;
+    }
+
+    .table-wrap{
+        overflow:visible !important;
+        width:100% !important;
+    }
+
+    table{
+        width:100% !important;
+        border-collapse:collapse !important;
+        table-layout:auto !important;
+    }
+
+    th,
+    td{
+        border:1px solid #000 !important;
+        background:#fff !important;
+        color:#000 !important;
+        padding:1.5px 2.5px !important;
+        font-size:7pt !important;
+        line-height:1.05 !important;
+        white-space:nowrap !important;
+    }
+
+    th{
+        font-weight:bold !important;
+    }
+
+    .branch-start td{
+        border-top:2px solid #000 !important;
+    }
+
+    .total-row td{
+        border-top:2px solid #000 !important;
+        font-weight:bold !important;
+    }
+
+    *{
+        -webkit-print-color-adjust:exact !important;
+        print-color-adjust:exact !important;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- CONTROL PANEL -->
+    <div class="panel no-print">
+
+        <h1>Daily Payment Collection Report</h1>
+
+        <div class="subtitle">
+            Upload Payment Collection CSV → Select Branches → Select Headers → Generate → Download / Print
+        </div>
+
+        <div class="row">
+
+            <input
+                type="file"
+                id="csvFile"
+                accept=".csv,text/csv"
+            >
+
+            <button
+                id="generateBtn"
+                class="primary"
+                disabled
+            >
+                Generate Report
+            </button>
+
+            <button
+                id="downloadBtn"
+                disabled
+            >
+                Download CSV
+            </button>
+
+            <button
+                id="printBtn"
+                disabled
+            >
+                Direct Print
+            </button>
+
+            <button
+                id="clearBtn"
+            >
+                Clear
+            </button>
+
+        </div>
+
+        <div id="status" class="status">
+            Please upload Payment Collection CSV.
+        </div>
+
+        <!-- BRANCH -->
+        <div class="section-title">
+            Branch Selection
+        </div>
+
+        <div class="row">
+
+            <button id="allBranchesBtn">
+                Select All Branches
+            </button>
+
+            <button id="onlyFinalBranchesBtn">
+                Chamba + Thatyur
+            </button>
+
+            <button id="removeBranchesBtn">
+                Remove All
+            </button>
+
+        </div>
+
+        <div id="branchList" class="branch-list">
+            Upload CSV first.
+        </div>
+
+        <!-- HEADERS -->
+        <div class="section-title">
+            Final Report Headers
+        </div>
+
+        <div class="header-buttons">
+
+            <button id="defaultHeadersBtn">
+                Final Sheet Headers
+            </button>
+
+            <button id="allHeadersBtn">
+                Select All Headers
+            </button>
+
+            <button id="removeHeadersBtn">
+                Remove All
+            </button>
+
+        </div>
+
+        <div id="headerList" class="header-list">
+            Upload CSV first.
+        </div>
+
+        <!-- SORT -->
+        <div class="section-title">
+            Sorting
+        </div>
+
+        <div class="row">
+
+            <label>
+                Sort:
+            </label>
+
+            <select id="sortMode">
+
+                <option value="branch-date-name">
+                    Thatyur → Chamba → Due Date → Member Name
+                </option>
+
+                <option value="branch-name">
+                    Thatyur → Chamba → Member Name
+                </option>
+
+                <option value="date-name">
+                    Due Date → Member Name
+                </option>
+
+                <option value="source">
+                    Source Order
+                </option>
+
+            </select>
+
+        </div>
+
+        <div id="summary" class="summary hidden"></div>
+
+    </div>
+
+
+    <!-- REPORT -->
+    <div id="report" class="report hidden">
+
+        <div class="report-head">
+
+            <div class="report-title">
+                Daily Payment Collection Report
+            </div>
+
+            <div
+                class="report-date"
+                id="reportDate"
+            ></div>
+
+        </div>
+
+        <div class="table-wrap">
+
+            <table id="reportTable">
+
+                <thead></thead>
+
+                <tbody></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   FINAL SHEET DEFAULT HEADERS
+========================================================= */
+
+const FINAL_HEADERS = [
+
+    "Branch Name",
+    "Member Name",
+    "Member Code",
+    "Mobile No",
+    "Account No",
+    "Principal Amount",
+    "Tenure",
+    "Installments Due",
+    "Installment Amount",
+    "Amount To Collect",
+    "Due Date",
+    "Agent Name"
+
+];
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+let originalHeaders = [];
+let originalRows = [];
+
+let availableBranches = [];
+
+let selectedHeaders = [...FINAL_HEADERS];
+let selectedBranches = [];
+
+let finalData = [];
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const fileInput =
+    document.getElementById("csvFile");
+
+const generateBtn =
+    document.getElementById("generateBtn");
+
+const downloadBtn =
+    document.getElementById("downloadBtn");
+
+const printBtn =
+    document.getElementById("printBtn");
+
+const clearBtn =
+    document.getElementById("clearBtn");
+
+const statusBox =
+    document.getElementById("status");
+
+const branchList =
+    document.getElementById("branchList");
+
+const headerList =
+    document.getElementById("headerList");
+
+const report =
+    document.getElementById("report");
+
+const reportTable =
+    document.getElementById("reportTable");
+
+const reportDate =
+    document.getElementById("reportDate");
+
+const summary =
+    document.getElementById("summary");
+
+const sortMode =
+    document.getElementById("sortMode");
+
+
+/* =========================================================
+   NORMALIZE TEXT
+========================================================= */
+
+function normalize(text){
+
+    return String(text ?? "")
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g," ")
+        .replace(/[_-]+/g," ");
+
+}
+
+
+/* =========================================================
+   BRANCH NORMALIZE
+   This is the important fix.
+========================================================= */
+
+function normalizeBranch(text){
+
+    return String(text ?? "")
+        .trim()
+        .toLowerCase()
+        .replace(/[^a-z0-9]/g,"");
+
+}
+
+
+/* =========================================================
+   BRANCH RANK
+   THATYUR ALWAYS FIRST
+   CHAMBA ALWAYS SECOND
+========================================================= */
+
+function branchRank(branch){
+
+    const b = normalizeBranch(branch);
+
+    if(
+        b === "thatyur" ||
+        b === "thatyurbranch"
+    ){
+        return 1;
+    }
+
+    if(
+        b === "chamba" ||
+        b === "chambabranch"
+    ){
+        return 2;
+    }
+
+    return 100;
+}
+
+
+/* =========================================================
+   CSV PARSER
+========================================================= */
+
+function parseCSV(text){
+
+    text = text.replace(/^\uFEFF/,"");
+
+    const rows = [];
+
+    let row = [];
+    let cell = "";
+    let quoted = false;
+
+    for(
+        let i = 0;
+        i < text.length;
+        i++
+    ){
+
+        const char = text[i];
+        const next = text[i+1];
+
+        if(char === '"'){
+
+            if(
+                quoted &&
+                next === '"'
+            ){
+
+                cell += '"';
+                i++;
+
+            }else{
+
+                quoted = !quoted;
+
+            }
+
+        }
+        else if(
+            char === "," &&
+            !quoted
+        ){
+
+            row.push(cell);
+            cell = "";
+
+        }
+        else if(
+            (char === "\n" ||
+             char === "\r") &&
+            !quoted
+        ){
+
+            if(
+                char === "\r" &&
+                next === "\n"
+            ){
+                i++;
+            }
+
+            row.push(cell);
+
+            if(
+                row.some(
+                    x => String(x).trim() !== ""
+                )
+            ){
+
+                rows.push(row);
+
+            }
+
+            row = [];
+            cell = "";
+
+        }
+        else{
+
+            cell += char;
+
+        }
+
+    }
+
+
+    if(
+        cell !== "" ||
+        row.length > 0
+    ){
+
+        row.push(cell);
+
+        if(
+            row.some(
+                x => String(x).trim() !== ""
+            )
+        ){
+
+            rows.push(row);
+
+        }
+
+    }
+
+    return rows;
+
+}
+
+
+/* =========================================================
+   CSV ESCAPE
+========================================================= */
+
+function csvEscape(value){
+
+    const text =
+        String(value ?? "");
+
+    if(
+        /[",\n\r]/.test(text)
+    ){
+
+        return '"' +
+            text.replace(/"/g,'""') +
+            '"';
+
+    }
+
+    return text;
+
+}
+
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+function getNumber(value){
+
+    const cleaned =
+        String(value ?? "")
+            .replace(/,/g,"")
+            .replace(/[₹$]/g,"")
+            .trim();
+
+    const number =
+        parseFloat(cleaned);
+
+    return Number.isFinite(number)
+        ? number
+        : null;
+
+}
+
+
+/* =========================================================
+   MONEY FORMAT
+========================================================= */
+
+function formatMoney(value){
+
+    const number =
+        getNumber(value);
+
+    if(number === null){
+
+        return String(value ?? "").trim();
+
+    }
+
+    return number.toLocaleString(
+        "en-IN",
+        {
+            minimumFractionDigits:0,
+            maximumFractionDigits:2
+        }
+    );
+
+}
+
+
+/* =========================================================
+   DATE FORMAT
+========================================================= */
+
+function formatDate(value){
+
+    const text =
+        String(value ?? "").trim();
+
+    if(!text){
+        return "";
+    }
+
+    let day = "";
+    let month = "";
+    let year = "";
+
+    let match =
+        text.match(
+            /^(\d{1,2})[\/-](\d{1,2})[\/-](\d{4})$/
+        );
+
+    if(match){
+
+        day = match[1];
+        month = match[2];
+        year = match[3];
+
+        return (
+            String(day).padStart(2,"0") +
+            "-" +
+            String(month).padStart(2,"0") +
+            "-" +
+            year
+        );
+
+    }
+
+    return text;
+
+}
+
+
+/* =========================================================
+   DATE SORT KEY
+========================================================= */
+
+function dateSortKey(value){
+
+    const text =
+        formatDate(value);
+
+    const parts =
+        text.split("-");
+
+    if(parts.length !== 3){
+
+        return 99999999;
+
+    }
+
+    return (
+        Number(parts[2]) * 10000 +
+        Number(parts[1]) * 100 +
+        Number(parts[0])
+    );
+
+}
+
+
+/* =========================================================
+   TODAY
+========================================================= */
+
+function todayDate(){
+
+    const d = new Date();
+
+    return (
+        String(d.getDate()).padStart(2,"0") +
+        "-" +
+        String(d.getMonth()+1).padStart(2,"0") +
+        "-" +
+        d.getFullYear()
+    );
+
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHTML(value){
+
+    return String(value ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================================
+   FIND HEADER
+========================================================= */
+
+function findHeader(headerName){
+
+    const wanted =
+        normalize(headerName);
+
+    return originalHeaders.find(
+        h => normalize(h) === wanted
+    );
+
+}
+
+
+/* =========================================================
+   LOAD FILE
+========================================================= */
+
+fileInput.addEventListener(
+    "change",
+    function(){
+
+        const file =
+            this.files[0];
+
+        if(!file){
+
+            return;
+
+        }
+
+        const reader =
+            new FileReader();
+
+        reader.onload =
+            function(){
+
+                try{
+
+                    const parsed =
+                        parseCSV(
+                            reader.result
+                        );
+
+                    if(parsed.length < 2){
+
+                        throw new Error(
+                            "CSV file is empty."
+                        );
+
+                    }
+
+                    originalHeaders =
+                        parsed[0].map(
+                            x => String(x).trim()
+                        );
+
+                    originalRows =
+                        parsed.slice(1);
+
+
+                    /* CHECK FINAL HEADERS */
+
+                    const missing =
+                        FINAL_HEADERS.filter(
+                            h =>
+                            !findHeader(h)
+                        );
+
+                    if(missing.length){
+
+                        throw new Error(
+                            "Final Sheet columns missing: " +
+                            missing.join(", ")
+                        );
+
+                    }
+
+
+                    /* GET BRANCH COLUMN */
+
+                    const branchHeader =
+                        findHeader("Branch Name");
+
+                    const branchIndex =
+                        originalHeaders.indexOf(
+                            branchHeader
+                        );
+
+
+                    /* GET UNIQUE BRANCHES */
+
+                    const branchSet =
+                        new Map();
+
+                    originalRows.forEach(
+                        row => {
+
+                            const branch =
+                                String(
+                                    row[branchIndex] ?? ""
+                                ).trim();
+
+                            if(branch){
+
+                                const key =
+                                    normalizeBranch(branch);
+
+                                if(!branchSet.has(key)){
+
+                                    branchSet.set(
+                                        key,
+                                        branch
+                                    );
+
+                                }
+
+                            }
+
+                        }
+                    );
+
+
+                    availableBranches =
+                        [...branchSet.values()]
+                        .sort(
+                            (a,b) =>
+                                branchRank(a) -
+                                branchRank(b)
+                        );
+
+
+                    /* DEFAULT BRANCHES */
+
+                    selectedBranches =
+                        availableBranches.filter(
+                            b => {
+
+                                const n =
+                                    normalizeBranch(b);
+
+                                return (
+                                    n === "thatyur" ||
+                                    n === "thatyurbranch" ||
+                                    n === "chamba" ||
+                                    n === "chambabranch"
+                                );
+
+                            }
+                        );
+
+
+                    selectedHeaders =
+                        FINAL_HEADERS.filter(
+                            h => findHeader(h)
+                        );
+
+
+                    renderBranchOptions();
+
+                    renderHeaderOptions();
+
+                    generateBtn.disabled =
+                        false;
+
+                    statusBox.textContent =
+                        "CSV loaded successfully. " +
+                        originalRows.length +
+                        " records found.";
+
+                }
+                catch(error){
+
+                    statusBox.textContent =
+                        "ERROR: " +
+                        error.message;
+
+                }
+
+            };
+
+        reader.readAsText(file);
+
+    }
+);
+
+
+/* =========================================================
+   BRANCH UI
+========================================================= */
+
+function renderBranchOptions(){
+
+    branchList.innerHTML = "";
+
+    availableBranches.forEach(
+        branch => {
+
+            const label =
+                document.createElement("label");
+
+            label.className =
+                "check-item";
+
+            const checkbox =
+                document.createElement("input");
+
+            checkbox.type =
+                "checkbox";
+
+            checkbox.value =
+                branch;
+
+            checkbox.checked =
+                selectedBranches.some(
+                    b =>
+                    normalizeBranch(b) ===
+                    normalizeBranch(branch)
+                );
+
+            checkbox.addEventListener(
+                "change",
+                updateSelectedBranches
+            );
+
+            label.appendChild(
+                checkbox
+            );
+
+            label.appendChild(
+                document.createTextNode(
+                    branch
+                )
+            );
+
+            branchList.appendChild(
+                label
+            );
+
+        }
+    );
+
+}
+
+
+function updateSelectedBranches(){
+
+    selectedBranches =
+        [...branchList.querySelectorAll(
+            "input[type=checkbox]:checked"
+        )].map(
+            x => x.value
+        );
+
+}
+
+
+/* =========================================================
+   HEADER UI
+========================================================= */
+
+function renderHeaderOptions(){
+
+    headerList.innerHTML = "";
+
+    originalHeaders.forEach(
+        header => {
+
+            const label =
+                document.createElement("label");
+
+            label.className =
+                "check-item";
+
+            const checkbox =
+                document.createElement("input");
+
+            checkbox.type =
+                "checkbox";
+
+            checkbox.value =
+                header;
+
+            checkbox.checked =
+                selectedHeaders.some(
+                    h =>
+                    normalize(h) ===
+                    normalize(header)
+                );
+
+            checkbox.addEventListener(
+                "change",
+                updateSelectedHeaders
+            );
+
+            label.appendChild(
+                checkbox
+            );
+
+            label.appendChild(
+                document.createTextNode(
+                    header
+                )
+            );
+
+            headerList.appendChild(
+                label
+            );
+
+        }
+    );
+
+}
+
+
+function updateSelectedHeaders(){
+
+    selectedHeaders =
+        [...headerList.querySelectorAll(
+            "input[type=checkbox]:checked"
+        )].map(
+            x => x.value
+        );
+
+}
+
+
+/* =========================================================
+   HEADER BUTTONS
+========================================================= */
+
+document
+.getElementById("defaultHeadersBtn")
+.addEventListener(
+    "click",
+    function(){
+
+        selectedHeaders =
+            FINAL_HEADERS.filter(
+                h => findHeader(h)
+            );
+
+        renderHeaderOptions();
+
+    }
+);
+
+
+document
+.getElementById("allHeadersBtn")
+.addEventListener(
+    "click",
+    function(){
+
+        selectedHeaders =
+            [...originalHeaders];
+
+        renderHeaderOptions();
+
+    }
+);
+
+
+document
+.getElementById("removeHeadersBtn")
+.addEventListener(
+    "click",
+    function(){
+
+        selectedHeaders = [];
+
+        renderHeaderOptions();
+
+    }
+);
+
+
+/* =========================================================
+   BRANCH BUTTONS
+========================================================= */
+
+document
+.getElementById("allBranchesBtn")
+.addEventListener(
+    "click",
+    function(){
+
+        selectedBranches =
+            [...availableBranches];
+
+        renderBranchOptions();
+
+    }
+);
+
+
+document
+.getElementById("onlyFinalBranchesBtn")
+.addEventListener(
+    "click",
+    function(){
+
+        selectedBranches =
+            availableBranches.filter(
+                b => {
+
+                    const n =
+                        normalizeBranch(b);
+
+                    return (
+                        n === "thatyur" ||
+                        n === "thatyurbranch" ||
+                        n === "chamba" ||
+                        n === "chambabranch"
+                    );
+
+                }
+            );
+
+        renderBranchOptions();
+
+    }
+);
+
+
+document
+.getElementById("removeBranchesBtn")
+.addEventListener(
+    "click",
+    function(){
+
+        selectedBranches = [];
+
+        renderBranchOptions();
+
+    }
+);
+
+
+/* =========================================================
+   GENERATE REPORT
+========================================================= */
+
+generateBtn.addEventListener(
+    "click",
+    generateReport
+);
+
+
+sortMode.addEventListener(
+    "change",
+    function(){
+
+        if(originalRows.length){
+
+            generateReport();
+
+        }
+
+    }
+);
+
+
+function generateReport(){
+
+    updateSelectedBranches();
+
+    updateSelectedHeaders();
+
+
+    if(selectedBranches.length === 0){
+
+        alert(
+            "Please select at least one branch."
+        );
+
+        return;
+
+    }
+
+
+    if(selectedHeaders.length === 0){
+
+        alert(
+            "Please select at least one header."
+        );
+
+        return;
+
+    }
+
+
+    /* HEADER INDEX */
+
+    const headerIndexes =
+        {};
+
+    originalHeaders.forEach(
+        (h,index) => {
+
+            headerIndexes[
+                normalize(h)
+            ] = index;
+
+        }
+    );
+
+
+    const branchHeader =
+        findHeader("Branch Name");
+
+    const branchIndex =
+        originalHeaders.indexOf(
+            branchHeader
+        );
+
+
+    /* CREATE DATA */
+
+    let data =
+        originalRows.map(
+            (row, sourceIndex) => {
+
+                const obj = {
+                    _sourceIndex:
+                        sourceIndex
+                };
+
+                selectedHeaders.forEach(
+                    header => {
+
+                        const index =
+                            headerIndexes[
+                                normalize(header)
+                            ];
+
+                        obj[header] =
+                            row[index] ?? "";
+
+                    }
+                );
+
+                return obj;
+
+            }
+        );
+
+
+    /* FILTER BRANCHES */
+
+    const selectedBranchKeys =
+        new Set(
+            selectedBranches.map(
+                b =>
+                normalizeBranch(b)
+            )
+        );
+
+
+    data =
+        data.filter(
+            row => {
+
+                const branch =
+                    row[
+                        branchHeader
+                    ] ?? "";
+
+                return selectedBranchKeys.has(
+                    normalizeBranch(branch)
+                );
+
+            }
+        );
+
+
+    /* =====================================================
+       SORT
+       THIS IS THE IMPORTANT PART
+    ===================================================== */
+
+    const mode =
+        sortMode.value;
+
+
+    if(mode === "branch-date-name"){
+
+        data.sort(
+            function(a,b){
+
+                const branchA =
+                    a[branchHeader] ?? "";
+
+                const branchB =
+                    b[branchHeader] ?? "";
+
+
+                /* FIRST: BRANCH */
+
+                const branchCompare =
+                    branchRank(branchA) -
+                    branchRank(branchB);
+
+                if(branchCompare !== 0){
+
+                    return branchCompare;
+
+                }
+
+
+                /* SECOND: DATE */
+
+                const dateHeader =
+                    findHeader("Due Date");
+
+                const dateA =
+                    dateSortKey(
+                        a[dateHeader] ?? ""
+                    );
+
+                const dateB =
+                    dateSortKey(
+                        b[dateHeader] ?? ""
+                    );
+
+                if(dateA !== dateB){
+
+                    return dateA - dateB;
+
+                }
+
+
+                /* THIRD: MEMBER NAME */
+
+                const memberHeader =
+                    findHeader("Member Name");
+
+                return String(
+                    a[memberHeader] ?? ""
+                ).localeCompare(
+                    String(
+                        b[memberHeader] ?? ""
+                    ),
+                    undefined,
+                    {
+                        sensitivity:"base"
+                    }
+                );
+
+            }
+        );
+
+    }
+    else if(mode === "branch-name"){
+
+        data.sort(
+            function(a,b){
+
+                const branchCompare =
+                    branchRank(
+                        a[branchHeader]
+                    ) -
+                    branchRank(
+                        b[branchHeader]
+                    );
+
+                if(branchCompare !== 0){
+
+                    return branchCompare;
+
+                }
+
+                const memberHeader =
+                    findHeader("Member Name");
+
+                return String(
+                    a[memberHeader] ?? ""
+                ).localeCompare(
+                    String(
+                        b[memberHeader] ?? ""
+                    ),
+                    undefined,
+                    {
+                        sensitivity:"base"
+                    }
+                );
+
+            }
+        );
+
+    }
+    else if(mode === "date-name"){
+
+        const dateHeader =
+            findHeader("Due Date");
+
+        const memberHeader =
+            findHeader("Member Name");
+
+        data.sort(
+            function(a,b){
+
+                const dateCompare =
+                    dateSortKey(
+                        a[dateHeader]
+                    ) -
+                    dateSortKey(
+                        b[dateHeader]
+                    );
+
+                if(dateCompare !== 0){
+
+                    return dateCompare;
+
+                }
+
+                return String(
+                    a[memberHeader] ?? ""
+                ).localeCompare(
+                    String(
+                        b[memberHeader] ?? ""
+                    ),
+                    undefined,
+                    {
+                        sensitivity:"base"
+                    }
+                );
+
+            }
+        );
+
+    }
+
+
+    finalData =
+        data;
+
+
+    /* =====================================================
+       RENDER TABLE
+    ===================================================== */
+
+    const thead =
+        reportTable.querySelector(
+            "thead"
+        );
+
+    const tbody =
+        reportTable.querySelector(
+            "tbody"
+        );
+
+
+    thead.innerHTML =
+        "<tr>" +
+        selectedHeaders
+            .map(
+                h =>
+                "<th>" +
+                escapeHTML(h) +
+                "</th>"
+            )
+            .join("") +
+        "</tr>";
+
+
+    tbody.innerHTML = "";
+
+
+    let previousBranch =
+        "";
+
+
+    data.forEach(
+        row => {
+
+            const tr =
+                document.createElement("tr");
+
+            const branchHeader =
+                findHeader("Branch Name");
+
+            const currentBranch =
+                row[branchHeader] ?? "";
+
+
+            if(
+                normalizeBranch(
+                    currentBranch
+                ) !==
+                normalizeBranch(
+                    previousBranch
+                )
+            ){
+
+                tr.className =
+                    "branch-start";
+
+            }
+
+
+            previousBranch =
+                currentBranch;
+
+
+            selectedHeaders.forEach(
+                header => {
+
+                    const td =
+                        document.createElement("td");
+
+                    let value =
+                        row[header] ?? "";
+
+
+                    const n =
+                        normalize(header);
+
+
+                    if(
+                        n ===
+                        normalize(
+                            "Principal Amount"
+                        ) ||
+                        n ===
+                        normalize(
+                            "Installment Amount"
+                        ) ||
+                        n ===
+                        normalize(
+                            "Amount To Collect"
+                        )
+                    ){
+
+                        value =
+                            formatMoney(value);
+
+                    }
+
+
+                    if(
+                        n ===
+                        normalize("Due Date")
+                    ){
+
+                        value =
+                            formatDate(value);
+
+                    }
+
+
+                    td.textContent =
+                        value;
+
+                    tr.appendChild(td);
+
+                }
+            );
+
+
+            tbody.appendChild(tr);
+
+        }
+    );
+
+
+    /* =====================================================
+       TOTAL
+    ===================================================== */
+
+    const amountHeader =
+        findHeader("Amount To Collect");
+
+
+    if(
+        selectedHeaders.some(
+            h =>
+            normalize(h) ===
+            normalize("Amount To Collect")
+        )
+    ){
+
+        const total =
+            data.reduce(
+                (sum,row) => {
+
+                    return sum +
+                        (
+                            getNumber(
+                                row[amountHeader]
+                            ) || 0
+                        );
+
+                },
+                0
+            );
+
+
+        const tr =
+            document.createElement("tr");
+
+        tr.className =
+            "total-row";
+
+
+        selectedHeaders.forEach(
+            (header,index) => {
+
+                const td =
+                    document.createElement("td");
+
+
+                if(index === 0){
+
+                    td.textContent =
+                        "TOTAL";
+
+                }
+                else if(
+                    normalize(header) ===
+                    normalize(
+                        "Amount To Collect"
+                    )
+                ){
+
+                    td.textContent =
+                        total.toLocaleString(
+                            "en-IN",
+                            {
+                                maximumFractionDigits:2
+                            }
+                        );
+
+                }
+                else{
+
+                    td.textContent =
+                        "";
+
+                }
+
+
+                tr.appendChild(td);
+
+            }
+        );
+
+
+        tbody.appendChild(tr);
+
+
+        summary.innerHTML =
+            "<span>Records: " +
+            data.length +
+            "</span>" +
+
+            "<span>Total Amount To Collect: ₹" +
+            total.toLocaleString(
+                "en-IN",
+                {
+                    maximumFractionDigits:2
+                }
+            ) +
+            "</span>";
+
+    }
+    else{
+
+        summary.innerHTML =
+            "<span>Records: " +
+            data.length +
+            "</span>";
+
+    }
+
+
+    summary.classList.remove(
+        "hidden"
+    );
+
+
+    reportDate.textContent =
+        "Date: " +
+        todayDate();
+
+
+    report.classList.remove(
+        "hidden"
+    );
+
+
+    downloadBtn.disabled =
+        data.length === 0;
+
+    printBtn.disabled =
+        data.length === 0;
+
+
+    statusBox.textContent =
+        "Report generated: " +
+        data.length +
+        " records. " +
+        "Order: Thatyur → Chamba.";
+
+}
+
+
+/* =========================================================
+   DOWNLOAD CSV
+========================================================= */
+
+downloadBtn.addEventListener(
+    "click",
+    function(){
+
+        if(!finalData.length){
+
+            return;
+
+        }
+
+
+        const lines = [];
+
+
+        lines.push(
+            selectedHeaders
+                .map(csvEscape)
+                .join(",")
+        );
+
+
+        finalData.forEach(
+            row => {
+
+                lines.push(
+                    selectedHeaders
+                        .map(
+                            h =>
+                            csvEscape(
+                                row[h]
+                            )
+                        )
+                        .join(",")
+                );
+
+            }
+        );
+
+
+        const blob =
+            new Blob(
+                [
+                    "\uFEFF" +
+                    lines.join("\r\n")
+                ],
+                {
+                    type:
+                    "text/csv;charset=utf-8"
+                }
+            );
+
+
+        const url =
+            URL.createObjectURL(
+                blob
+            );
+
+
+        const a =
+            document.createElement("a");
+
+        a.href =
+            url;
+
+        a.download =
+            "Daily_Payment_Report_" +
+            todayDate().replace(
+                /-/g,
+                "_"
+            ) +
+            ".csv";
+
+
+        document.body.appendChild(a);
+
+        a.click();
+
+        a.remove();
+
+        URL.revokeObjectURL(url);
+
+    }
+);
+
+
+/* =========================================================
+   DIRECT PRINT
+   Opens a clean print-only window.
+========================================================= */
+
+printBtn.addEventListener(
+    "click",
+    function(){
+
+        if(!finalData.length){
+
+            alert(
+                "Please generate the report first."
+            );
+
+            return;
+
+        }
+
+
+        /* Make sure latest report is generated */
+
+        generateReport();
+
+
+        const tableHTML =
+            reportTable.outerHTML;
+
+        const title =
+            "Daily Payment Collection Report";
+
+        const date =
+            todayDate();
+
+
+        const printWindow =
+            window.open(
+                "",
+                "_blank",
+                "width=1200,height=800"
+            );
+
+
+        if(!printWindow){
+
+            alert(
+                "Print window blocked. Please allow pop-ups for this file."
+            );
+
+            return;
+
+        }
+
+
+        printWindow.document.open();
+
+
+        printWindow.document.write(`
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>${title}</title>
+
+<style>
+
+@page{
+
+    size:A4 landscape;
+
+    margin:4mm;
+
+}
+
+*{
+
+    box-sizing:border-box;
+
+}
+
+html,
+body{
+
+    margin:0;
+
+    padding:0;
+
+    background:#fff;
+
+    color:#000;
+
+    font-family:Arial,Helvetica,sans-serif;
+
+}
+
+.print-head{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+    border-bottom:2px solid #000;
+
+    padding-bottom:2mm;
+
+    margin-bottom:2mm;
+
+}
+
+.title{
+
+    font-size:10pt;
+
+    font-weight:bold;
+
+}
+
+.date{
+
+    font-size:8pt;
+
+    font-weight:bold;
+
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    table-layout:auto;
+
+    color:#000;
+
+}
+
+th,
+td{
+
+    border:1px solid #000;
+
+    padding:1.5px 2.5px;
+
+    font-size:7pt;
+
+    line-height:1.05;
+
+    white-space:nowrap;
+
+    background:#fff;
+
+    color:#000;
+
+}
+
+th{
+
+    font-weight:bold;
+
+}
+
+.branch-start td{
+
+    border-top:2px solid #000;
+
+}
+
+.total-row td{
+
+    border-top:2px solid #000;
+
+    font-weight:bold;
+
+}
+
+@media print{
+
+    html,
+    body{
+
+        width:100%;
+
+        height:auto;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="print-head">
+
+<div class="title">
+${title}
+</div>
+
+<div class="date">
+Date: ${date}
+</div>
+
+</div>
+
+${tableHTML}
+
+<script>
+
+window.onload = function(){
+
+    setTimeout(
+        function(){
+
+            window.print();
+
+            setTimeout(
+                function(){
+
+                    window.close();
+
+                },
+                500
+            );
+
+        },
+        250
+    );
+
+};
+
+<\/script>
+
+</body>
+
+</html>
+
+        `);
+
+
+        printWindow.document.close();
+
+    }
+);
+
+
+/* =========================================================
+   CLEAR
+========================================================= */
+
+clearBtn.addEventListener(
+    "click",
+    function(){
+
+        location.reload();
+
+    }
+);
+
+</script>
+
+</body>
+</html>
