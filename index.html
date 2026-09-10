@@ -7,14 +7,15 @@
     <title>Rahul Petwal | Operations & MIS Professional</title>
 
     <meta name="description"
-          content="Rahul Petwal - Operations, MIS, Excel, Data Management and Business Support professional.">
+          content="Rahul Petwal - Operations, MIS, Excel, Data Management and Business Support Professional.">
 
     <meta name="author" content="Rahul Petwal">
 
     <style>
-        /* =========================
-           BASE
-        ========================= */
+
+        /* ==============================
+           RESET
+        ============================== */
 
         * {
             margin: 0;
@@ -56,53 +57,56 @@
             margin: auto;
         }
 
-        /* =========================
+
+        /* ==============================
            HEADER
-        ========================= */
+        ============================== */
 
         header {
             position: sticky;
             top: 0;
             z-index: 1000;
 
-            background: rgba(255,255,255,0.92);
+            background: rgba(255,255,255,0.94);
             backdrop-filter: blur(12px);
 
             border-bottom: 1px solid #e5eaf0;
         }
 
         .nav {
-            height: 72px;
+            min-height: 72px;
 
             display: flex;
             align-items: center;
             justify-content: space-between;
+
             gap: 30px;
         }
 
         .brand {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 11px;
 
-            font-weight: 700;
-            font-size: 18px;
-            letter-spacing: -0.3px;
+            font-size: 17px;
+            font-weight: 750;
+
+            color: #111827;
         }
 
         .brand-mark {
             width: 38px;
             height: 38px;
 
-            border-radius: 10px;
-
             display: grid;
             place-items: center;
 
-            background: #111827;
-            color: white;
+            border-radius: 9px;
 
-            font-size: 16px;
+            background: #111827;
+            color: #ffffff;
+
+            font-size: 13px;
             font-weight: 800;
         }
 
@@ -111,13 +115,14 @@
 
             display: flex;
             align-items: center;
-            gap: 28px;
+            gap: 27px;
         }
 
         nav a {
-            font-size: 14px;
-            font-weight: 500;
-            color: #596579;
+            font-size: 13px;
+            font-weight: 600;
+
+            color: #647084;
 
             transition: 0.2s ease;
         }
@@ -127,29 +132,26 @@
         }
 
         .nav-contact {
-            padding: 9px 16px;
+            padding: 8px 15px;
 
-            border: 1px solid #d9e0e8;
+            border: 1px solid #d8dfe8;
             border-radius: 8px;
 
+            background: #ffffff;
             color: #172033;
-            background: #fff;
         }
 
-        .nav-contact:hover {
-            border-color: #9aa6b5;
-        }
 
-        /* =========================
+        /* ==============================
            HERO
-        ========================= */
+        ============================== */
 
         .hero {
-            padding: 92px 0 76px;
+            padding: 92px 0 78px;
 
             background:
                 radial-gradient(
-                    circle at 85% 15%,
+                    circle at 82% 12%,
                     rgba(37,99,235,0.07),
                     transparent 30%
                 ),
@@ -159,6 +161,7 @@
         .hero-grid {
             display: grid;
             grid-template-columns: 1.35fr 0.65fr;
+
             gap: 70px;
             align-items: center;
         }
@@ -170,29 +173,33 @@
 
             margin-bottom: 20px;
 
-            font-size: 13px;
-            font-weight: 700;
-
             color: #2563eb;
-            letter-spacing: 0.3px;
+
+            font-size: 12px;
+            font-weight: 800;
+
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .eyebrow::before {
             content: "";
+
             width: 7px;
             height: 7px;
 
             border-radius: 50%;
+
             background: #2563eb;
         }
 
         .hero h1 {
             max-width: 760px;
 
-            font-size: clamp(42px, 6vw, 72px);
+            font-size: clamp(43px, 6vw, 70px);
             line-height: 1.04;
 
-            letter-spacing: -3.5px;
+            letter-spacing: -3.4px;
 
             color: #111827;
 
@@ -206,40 +213,40 @@
         .hero-description {
             max-width: 650px;
 
-            font-size: 18px;
-            line-height: 1.7;
+            margin-bottom: 31px;
 
             color: #596579;
 
-            margin-bottom: 32px;
+            font-size: 17px;
+            line-height: 1.75;
         }
 
         .hero-actions {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 10px;
         }
 
         .btn {
+            min-height: 44px;
+
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
 
-            min-height: 44px;
-            padding: 0 18px;
+            padding: 0 17px;
 
             border-radius: 8px;
 
-            font-size: 14px;
-            font-weight: 650;
+            font-size: 13px;
+            font-weight: 700;
 
             transition: 0.2s ease;
         }
 
         .btn-primary {
             background: #111827;
-            color: white;
+            color: #ffffff;
 
             border: 1px solid #111827;
         }
@@ -247,24 +254,27 @@
         .btn-primary:hover {
             background: #263246;
             border-color: #263246;
+
             transform: translateY(-1px);
         }
 
         .btn-outline {
-            background: white;
+            background: #ffffff;
             color: #172033;
 
             border: 1px solid #d5dce5;
         }
 
         .btn-outline:hover {
-            border-color: #9aa6b5;
+            border-color: #9ba7b6;
+
             transform: translateY(-1px);
         }
 
-        /* =========================
+
+        /* ==============================
            PROFILE
-        ========================= */
+        ============================== */
 
         .profile-area {
             display: flex;
@@ -272,17 +282,17 @@
         }
 
         .profile-card {
-            width: 290px;
+            width: 285px;
 
-            padding: 14px;
+            padding: 13px;
 
-            background: white;
+            background: #ffffff;
 
-            border: 1px solid #e2e8f0;
-            border-radius: 20px;
+            border: 1px solid #e1e7ee;
+            border-radius: 19px;
 
             box-shadow:
-                0 20px 50px rgba(15,23,42,0.08);
+                0 22px 55px rgba(15,23,42,0.08);
         }
 
         .profile-photo {
@@ -291,38 +301,41 @@
 
             object-fit: cover;
 
-            border-radius: 14px;
+            border-radius: 13px;
         }
 
         .profile-info {
-            padding: 18px 6px 6px;
+            padding: 17px 5px 5px;
         }
 
         .profile-info strong {
             display: block;
 
-            font-size: 17px;
             color: #111827;
+
+            font-size: 17px;
         }
 
         .profile-info span {
             display: block;
 
-            margin-top: 4px;
+            margin-top: 3px;
 
-            font-size: 13px;
-            color: #687386;
+            color: #6b7688;
+
+            font-size: 12px;
         }
 
-        /* =========================
-           QUICK STATS
-        ========================= */
+
+        /* ==============================
+           QUICK INFO
+        ============================== */
 
         .quick-strip {
+            background: #ffffff;
+
             border-top: 1px solid #e3e8ef;
             border-bottom: 1px solid #e3e8ef;
-
-            background: white;
         }
 
         .quick-grid {
@@ -331,7 +344,7 @@
         }
 
         .quick-item {
-            padding: 22px 20px;
+            padding: 21px 20px;
 
             border-right: 1px solid #e3e8ef;
         }
@@ -343,8 +356,9 @@
         .quick-item strong {
             display: block;
 
-            font-size: 15px;
             color: #111827;
+
+            font-size: 14px;
         }
 
         .quick-item span {
@@ -352,16 +366,18 @@
 
             margin-top: 3px;
 
-            font-size: 12px;
             color: #748094;
+
+            font-size: 11px;
         }
 
-        /* =========================
-           SECTIONS
-        ========================= */
+
+        /* ==============================
+           GENERAL SECTION
+        ============================== */
 
         section {
-            padding: 96px 0;
+            padding: 92px 0;
         }
 
         .section-head {
@@ -371,51 +387,55 @@
 
             gap: 30px;
 
-            margin-bottom: 42px;
+            margin-bottom: 40px;
         }
 
         .section-label {
-            margin-bottom: 10px;
+            margin-bottom: 9px;
 
             color: #2563eb;
 
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 800;
 
-            letter-spacing: 1.5px;
+            letter-spacing: 1.6px;
             text-transform: uppercase;
         }
 
         .section-head h2 {
-            font-size: clamp(30px, 4vw, 44px);
+            color: #111827;
+
+            font-size: clamp(30px, 4vw, 43px);
             line-height: 1.15;
 
-            letter-spacing: -1.5px;
-
-            color: #111827;
+            letter-spacing: -1.6px;
         }
 
         .section-head p {
-            max-width: 430px;
+            max-width: 420px;
 
             color: #687386;
-            font-size: 15px;
+
+            font-size: 14px;
         }
 
-        /* =========================
+
+        /* ==============================
            ABOUT
-        ========================= */
+        ============================== */
 
         .about-grid {
             display: grid;
             grid-template-columns: 1.1fr 0.9fr;
+
             gap: 60px;
         }
 
         .about-main {
-            font-size: 18px;
-            line-height: 1.8;
             color: #536074;
+
+            font-size: 16px;
+            line-height: 1.85;
         }
 
         .about-main strong {
@@ -424,15 +444,15 @@
 
         .about-points {
             display: grid;
-            gap: 12px;
+            gap: 11px;
         }
 
         .about-point {
-            padding: 17px 18px;
+            padding: 16px 18px;
 
-            background: white;
+            background: #ffffff;
 
-            border: 1px solid #e2e8f0;
+            border: 1px solid #e1e7ee;
             border-radius: 10px;
         }
 
@@ -440,7 +460,8 @@
             display: block;
 
             color: #172033;
-            font-size: 14px;
+
+            font-size: 13px;
         }
 
         .about-point span {
@@ -449,15 +470,18 @@
             margin-top: 4px;
 
             color: #687386;
-            font-size: 13px;
+
+            font-size: 12px;
         }
 
-        /* =========================
+
+        /* ==============================
            SKILLS
-        ========================= */
+        ============================== */
 
         .skills-section {
-            background: white;
+            background: #ffffff;
+
             border-top: 1px solid #e8edf3;
             border-bottom: 1px solid #e8edf3;
         }
@@ -465,18 +489,19 @@
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 14px;
+
+            gap: 13px;
         }
 
         .skill {
-            min-height: 110px;
+            min-height: 105px;
 
-            padding: 22px;
-
-            border: 1px solid #e1e7ee;
-            border-radius: 12px;
+            padding: 21px;
 
             background: #fbfcfe;
+
+            border: 1px solid #e1e7ee;
+            border-radius: 11px;
 
             transition: 0.2s ease;
         }
@@ -486,45 +511,45 @@
 
             border-color: #cbd5e1;
 
-            box-shadow: 0 10px 30px rgba(15,23,42,0.05);
+            box-shadow:
+                0 12px 32px rgba(15,23,42,0.05);
         }
 
         .skill-number {
-            font-size: 11px;
-            font-weight: 800;
-
             color: #2563eb;
+
+            font-size: 10px;
+            font-weight: 800;
         }
 
         .skill h3 {
-            margin-top: 10px;
+            margin-top: 9px;
 
-            font-size: 15px;
             color: #172033;
+
+            font-size: 14px;
         }
 
         .skill p {
             margin-top: 4px;
 
-            font-size: 12px;
             color: #748094;
+
+            font-size: 11px;
         }
 
-        /* =========================
+
+        /* ==============================
            EXPERIENCE
-        ========================= */
-
-        .experience {
-            position: relative;
-        }
+        ============================== */
 
         .experience-item {
             display: grid;
-            grid-template-columns: 190px 1fr;
+            grid-template-columns: 180px 1fr;
 
             gap: 45px;
 
-            padding: 30px 0;
+            padding: 28px 0;
 
             border-top: 1px solid #e2e8f0;
         }
@@ -534,36 +559,36 @@
         }
 
         .experience-date {
-            font-size: 13px;
-            font-weight: 700;
-
             color: #687386;
+
+            font-size: 12px;
+            font-weight: 700;
         }
 
         .experience-role {
-            font-size: 20px;
-            font-weight: 700;
-
             color: #111827;
+
+            font-size: 19px;
+            font-weight: 750;
         }
 
         .experience-company {
-            margin-top: 4px;
+            margin-top: 3px;
 
             color: #2563eb;
 
-            font-size: 14px;
-            font-weight: 650;
+            font-size: 13px;
+            font-weight: 700;
         }
 
         .experience-desc {
-            margin-top: 14px;
-
             max-width: 720px;
+
+            margin-top: 12px;
 
             color: #687386;
 
-            font-size: 14px;
+            font-size: 13px;
             line-height: 1.75;
         }
 
@@ -571,31 +596,32 @@
             display: flex;
             flex-wrap: wrap;
 
-            gap: 7px;
+            gap: 6px;
 
-            margin-top: 16px;
+            margin-top: 14px;
         }
 
         .tag {
-            padding: 5px 9px;
-
-            border-radius: 6px;
+            padding: 4px 8px;
 
             background: #f1f5f9;
-            border: 1px solid #e2e8f0;
 
-            font-size: 11px;
-            font-weight: 600;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
 
             color: #536074;
+
+            font-size: 10px;
+            font-weight: 650;
         }
 
-        /* =========================
+
+        /* ==============================
            PROJECTS
-        ========================= */
+        ============================== */
 
         .projects-section {
-            background: white;
+            background: #ffffff;
 
             border-top: 1px solid #e8edf3;
             border-bottom: 1px solid #e8edf3;
@@ -605,20 +631,20 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
 
-            gap: 18px;
+            gap: 17px;
         }
 
         .project {
             position: relative;
 
-            min-height: 260px;
+            min-height: 245px;
 
-            padding: 28px;
+            padding: 27px;
+
+            background: #ffffff;
 
             border: 1px solid #e1e7ee;
-            border-radius: 14px;
-
-            background: #fff;
+            border-radius: 13px;
 
             transition: 0.22s ease;
         }
@@ -633,40 +659,44 @@
         }
 
         .project-number {
-            font-size: 12px;
+            color: #2563eb;
+
+            font-size: 10px;
             font-weight: 800;
 
-            color: #2563eb;
+            letter-spacing: 0.5px;
         }
 
         .project h3 {
-            margin-top: 22px;
-
-            font-size: 21px;
-            line-height: 1.3;
+            margin-top: 20px;
 
             color: #111827;
+
+            font-size: 19px;
+            line-height: 1.35;
         }
 
         .project p {
-            margin-top: 10px;
+            max-width: 600px;
+
+            margin-top: 9px;
 
             color: #687386;
 
-            font-size: 14px;
+            font-size: 13px;
             line-height: 1.7;
         }
 
         .project-link {
             position: absolute;
 
-            left: 28px;
-            bottom: 26px;
-
-            font-size: 13px;
-            font-weight: 700;
+            left: 27px;
+            bottom: 23px;
 
             color: #2563eb;
+
+            font-size: 12px;
+            font-weight: 750;
         }
 
         .project-link:hover {
@@ -684,27 +714,84 @@
 
         .coming-soon .project-link {
             color: #8792a4;
+
             cursor: default;
+
+            text-decoration: none;
         }
 
-        /* =========================
+
+        /* ==============================
+           PORTFOLIO SUMMARY DOWNLOAD
+        ============================== */
+
+        .summary-section {
+            background: #f8fafc;
+        }
+
+        .summary-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 35px;
+
+            padding: 34px;
+
+            background: #ffffff;
+
+            border: 1px solid #dfe6ee;
+            border-radius: 14px;
+
+            box-shadow:
+                0 12px 35px rgba(15,23,42,0.04);
+        }
+
+        .summary-content h3 {
+            color: #111827;
+
+            font-size: 23px;
+            letter-spacing: -0.6px;
+        }
+
+        .summary-content p {
+            max-width: 620px;
+
+            margin-top: 6px;
+
+            color: #687386;
+
+            font-size: 13px;
+        }
+
+        .summary-actions {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 9px;
+
+            flex-shrink: 0;
+        }
+
+
+        /* ==============================
            PROCESS
-        ========================= */
+        ============================== */
 
         .process-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
 
-            border: 1px solid #e1e7ee;
-            border-radius: 14px;
-
             overflow: hidden;
 
-            background: white;
+            background: #ffffff;
+
+            border: 1px solid #e1e7ee;
+            border-radius: 13px;
         }
 
         .process-item {
-            padding: 28px;
+            padding: 27px;
 
             border-right: 1px solid #e1e7ee;
         }
@@ -714,34 +801,35 @@
         }
 
         .process-number {
-            font-size: 12px;
-            font-weight: 800;
-
             color: #2563eb;
+
+            font-size: 11px;
+            font-weight: 800;
         }
 
         .process-item h3 {
-            margin-top: 18px;
-
-            font-size: 17px;
+            margin-top: 17px;
 
             color: #172033;
+
+            font-size: 16px;
         }
 
         .process-item p {
-            margin-top: 7px;
+            margin-top: 6px;
 
             color: #687386;
 
-            font-size: 13px;
+            font-size: 12px;
         }
 
-        /* =========================
+
+        /* ==============================
            CTA
-        ========================= */
+        ============================== */
 
         .cta {
-            padding: 76px 0;
+            padding: 75px 0;
         }
 
         .cta-box {
@@ -751,55 +839,55 @@
 
             gap: 30px;
 
-            padding: 42px;
-
-            border-radius: 16px;
+            padding: 40px;
 
             background: #111827;
-            color: white;
+
+            border-radius: 15px;
+
+            color: #ffffff;
         }
 
         .cta-box h2 {
-            font-size: 32px;
+            color: #ffffff;
 
+            font-size: 30px;
             letter-spacing: -1px;
         }
 
         .cta-box p {
-            margin-top: 7px;
+            margin-top: 6px;
 
             color: #b8c1cf;
 
-            font-size: 14px;
+            font-size: 13px;
         }
 
         .cta-actions {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+
+            gap: 9px;
         }
 
         .cta .btn-primary {
-            background: white;
+            background: #ffffff;
             color: #111827;
 
-            border-color: white;
+            border-color: #ffffff;
         }
 
         .cta .btn-outline {
             background: transparent;
-            color: white;
+            color: #ffffff;
 
             border-color: #4b5563;
         }
 
-        .cta .btn-outline:hover {
-            border-color: #9ca3af;
-        }
 
-        /* =========================
+        /* ==============================
            CONTACT
-        ========================= */
+        ============================== */
 
         .contact-grid {
             display: grid;
@@ -809,59 +897,58 @@
         }
 
         .contact-intro h2 {
-            font-size: 34px;
+            color: #111827;
 
+            font-size: 33px;
             line-height: 1.2;
 
             letter-spacing: -1px;
-
-            color: #111827;
         }
 
         .contact-intro p {
-            margin-top: 14px;
+            margin-top: 12px;
 
             color: #687386;
 
-            font-size: 14px;
+            font-size: 13px;
         }
 
         .contact-list {
             display: grid;
-            gap: 12px;
+            gap: 11px;
         }
 
         .contact-item {
-            padding: 18px 20px;
+            padding: 17px 19px;
 
-            background: white;
+            background: #ffffff;
 
             border: 1px solid #e1e7ee;
-            border-radius: 10px;
+            border-radius: 9px;
         }
 
         .contact-item small {
             display: block;
 
-            font-size: 11px;
-            font-weight: 800;
-
             color: #8a94a5;
 
+            font-size: 9px;
+            font-weight: 800;
+
+            letter-spacing: 1.2px;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         .contact-item a,
         .contact-item span {
             display: block;
 
-            margin-top: 5px;
-
-            font-size: 14px;
-            font-weight: 600;
+            margin-top: 4px;
 
             color: #172033;
+
+            font-size: 13px;
+            font-weight: 650;
 
             word-break: break-word;
         }
@@ -870,16 +957,17 @@
             color: #2563eb;
         }
 
-        /* =========================
+
+        /* ==============================
            FOOTER
-        ========================= */
+        ============================== */
 
         footer {
-            padding: 28px 0;
+            padding: 27px 0;
+
+            background: #ffffff;
 
             border-top: 1px solid #e2e8f0;
-
-            background: white;
         }
 
         .footer-inner {
@@ -891,35 +979,37 @@
         }
 
         .footer-inner p {
-            font-size: 12px;
             color: #7a8494;
+
+            font-size: 11px;
         }
 
         .footer-links {
             display: flex;
-            gap: 18px;
+            gap: 17px;
         }
 
         .footer-links a {
-            font-size: 12px;
-            font-weight: 650;
-
             color: #596579;
+
+            font-size: 11px;
+            font-weight: 650;
         }
 
         .footer-links a:hover {
             color: #2563eb;
         }
 
-        /* =========================
-           RESPONSIVE
-        ========================= */
+
+        /* ==============================
+           TABLET
+        ============================== */
 
         @media (max-width: 900px) {
 
             .hero-grid {
                 grid-template-columns: 1fr;
-                gap: 50px;
+                gap: 45px;
             }
 
             .profile-area {
@@ -953,14 +1043,27 @@
 
             .experience-item {
                 grid-template-columns: 1fr;
-                gap: 8px;
+                gap: 7px;
             }
 
             .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 35px;
             }
+
+            .summary-box {
+                display: block;
+            }
+
+            .summary-actions {
+                margin-top: 20px;
+            }
         }
+
+
+        /* ==============================
+           MOBILE
+        ============================== */
 
         @media (max-width: 700px) {
 
@@ -973,8 +1076,7 @@
             }
 
             .nav {
-                height: auto;
-                min-height: 68px;
+                min-height: 67px;
             }
 
             nav ul {
@@ -982,34 +1084,37 @@
             }
 
             .nav-contact {
-                padding: 8px 12px;
-                font-size: 12px;
+                padding: 7px 11px;
+
+                font-size: 11px;
             }
 
             .hero {
-                padding: 65px 0 55px;
+                padding: 62px 0 55px;
             }
 
             .hero h1 {
                 font-size: 43px;
+
                 letter-spacing: -2.2px;
             }
 
             .hero-description {
-                font-size: 16px;
+                font-size: 15px;
             }
 
             section {
-                padding: 70px 0;
+                padding: 68px 0;
             }
 
             .section-head {
                 display: block;
+
                 margin-bottom: 30px;
             }
 
             .section-head p {
-                margin-top: 14px;
+                margin-top: 12px;
             }
 
             .skills-grid {
@@ -1035,11 +1140,12 @@
 
             .cta-box {
                 display: block;
+
                 padding: 30px;
             }
 
             .cta-actions {
-                margin-top: 22px;
+                margin-top: 20px;
             }
 
             .footer-inner {
@@ -1047,9 +1153,14 @@
             }
 
             .footer-links {
-                margin-top: 12px;
+                margin-top: 11px;
             }
         }
+
+
+        /* ==============================
+           SMALL MOBILE
+        ============================== */
 
         @media (max-width: 450px) {
 
@@ -1071,6 +1182,7 @@
             }
 
             .hero-actions,
+            .summary-actions,
             .cta-actions {
                 flex-direction: column;
                 align-items: stretch;
@@ -1079,51 +1191,95 @@
             .btn {
                 width: 100%;
             }
+
+            .summary-box {
+                padding: 25px;
+            }
         }
+
     </style>
 </head>
 
+
 <body>
 
-<!-- =========================
+
+<!-- =====================================
      HEADER
-========================= -->
+===================================== -->
 
 <header>
+
     <div class="container nav">
 
         <a href="#top" class="brand">
-            <div class="brand-mark">RP</div>
-            <span>Rahul Petwal</span>
+
+            <div class="brand-mark">
+                RP
+            </div>
+
+            <span>
+                Rahul Petwal
+            </span>
+
         </a>
 
+
         <nav>
+
             <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
+
+                <li>
+                    <a href="#about">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#skills">
+                        Skills
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#experience">
+                        Experience
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#projects">
+                        Projects
+                    </a>
+                </li>
+
                 <li>
                     <a href="#contact" class="nav-contact">
                         Contact
                     </a>
                 </li>
+
             </ul>
+
         </nav>
 
     </div>
+
 </header>
+
 
 
 <main id="top">
 
-<!-- =========================
+
+<!-- =====================================
      HERO
-========================= -->
+===================================== -->
 
 <section class="hero">
 
     <div class="container hero-grid">
+
 
         <div>
 
@@ -1131,40 +1287,63 @@
                 Operations • MIS • Data
             </div>
 
+
             <h1>
+
                 Turning routine work into
-                <span>structured systems.</span>
+
+                <span>
+                    structured systems.
+                </span>
+
             </h1>
 
+
             <p class="hero-description">
-                Operations and MIS professional with practical experience
-                in Excel, reporting, data management, documentation and
-                business support. I also build simple digital tools that
-                make everyday workflows easier to manage.
+
+                Operations and MIS professional with practical
+                experience in Excel, reporting, data management,
+                documentation and business support. I also build
+                simple digital tools for everyday workflows.
+
             </p>
+
 
             <div class="hero-actions">
 
-                <a href="#projects" class="btn btn-primary">
+                <a
+                    href="#projects"
+                    class="btn btn-primary">
+
                     View Projects →
+
                 </a>
 
-                <a href="Rahul-Petwal-Resume.pdf"
-                   class="btn btn-outline"
-                   download>
+
+                <a
+                    href="Rahul-Petwal-Resume.pdf"
+                    class="btn btn-outline"
+                    download>
+
                     Download CV ↓
+
                 </a>
 
-                <a href="https://www.linkedin.com/in/rahulpetwal"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="btn btn-outline">
+
+                <a
+                    href="https://www.linkedin.com/in/rahulpetwal"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-outline">
+
                     LinkedIn ↗
+
                 </a>
 
             </div>
 
         </div>
+
 
 
         <div class="profile-area">
@@ -1177,66 +1356,110 @@
                     class="profile-photo"
                 >
 
+
                 <div class="profile-info">
-                    <strong>Rahul Petwal</strong>
+
+                    <strong>
+                        Rahul Petwal
+                    </strong>
+
                     <span>
                         Operations & MIS Professional
                     </span>
+
                 </div>
 
             </div>
 
         </div>
 
+
     </div>
 
 </section>
 
 
-<!-- =========================
+
+<!-- =====================================
      QUICK OVERVIEW
-========================= -->
+===================================== -->
 
 <div class="quick-strip">
 
     <div class="container quick-grid">
 
-        <div class="quick-item">
-            <strong>Operations</strong>
-            <span>Business & process support</span>
-        </div>
 
         <div class="quick-item">
-            <strong>MIS & Reporting</strong>
-            <span>Structured data & reports</span>
+
+            <strong>
+                Operations
+            </strong>
+
+            <span>
+                Business & process support
+            </span>
+
         </div>
 
-        <div class="quick-item">
-            <strong>Microsoft Excel</strong>
-            <span>Data, formulas & reporting</span>
-        </div>
 
         <div class="quick-item">
-            <strong>Digital Tools</strong>
-            <span>Practical HTML-based solutions</span>
+
+            <strong>
+                MIS & Reporting
+            </strong>
+
+            <span>
+                Structured data & reports
+            </span>
+
         </div>
+
+
+        <div class="quick-item">
+
+            <strong>
+                Microsoft Excel
+            </strong>
+
+            <span>
+                Data, formulas & reporting
+            </span>
+
+        </div>
+
+
+        <div class="quick-item">
+
+            <strong>
+                Digital Tools
+            </strong>
+
+            <span>
+                Practical HTML solutions
+            </span>
+
+        </div>
+
 
     </div>
 
 </div>
 
 
-<!-- =========================
+
+<!-- =====================================
      ABOUT
-========================= -->
+===================================== -->
 
 <section id="about">
 
     <div class="container">
 
+
         <div class="section-head">
 
             <div>
+
                 <div class="section-label">
                     Profile
                 </div>
@@ -1244,85 +1467,137 @@
                 <h2>
                     About Me
                 </h2>
+
             </div>
 
+
             <p>
-                Practical experience across operations, MIS,
-                data handling and business support.
+                Practical experience across operations,
+                MIS, data handling and business support.
             </p>
 
         </div>
 
 
+
         <div class="about-grid">
+
 
             <div class="about-main">
 
                 <p>
-                    I am an <strong>Operations and MIS professional</strong>
-                    with hands-on experience in business operations,
-                    reporting, data management and computer-based workflows.
+
+                    I am an
+                    <strong>
+                        Operations and MIS professional
+                    </strong>
+                    with hands-on experience in business
+                    operations, reporting, data management
+                    and computer-based workflows.
+
                 </p>
+
 
                 <br>
 
+
                 <p>
+
                     My work includes
-                    <strong>Microsoft Excel, MIS reporting,
-                    documentation, operational coordination
-                    and day-to-day business support.</strong>
+                    <strong>
+                        Microsoft Excel, MIS reporting,
+                        documentation, operational coordination
+                        and day-to-day business support.
+                    </strong>
+
                 </p>
+
 
                 <br>
 
+
                 <p>
+
                     I enjoy improving routine processes through
-                    structured data, practical reporting and simple
-                    digital tools. I also have exposure to
-                    finance-related operations, loan processing support
-                    and business documentation.
+                    structured data, practical reporting and
+                    simple digital tools. I also have exposure
+                    to finance-related operations and business
+                    documentation.
+
                 </p>
+
 
                 <br>
 
+
                 <p>
-                    My current focus is on opportunities in
-                    <strong>Operations, MIS, Data Management,
-                    Back Office and Business Support.</strong>
+
+                    Current career focus:
+                    <strong>
+                        Operations, MIS, Data Management,
+                        Back Office and Business Support.
+                    </strong>
+
                 </p>
 
             </div>
 
 
+
             <div class="about-points">
 
+
                 <div class="about-point">
-                    <strong>Work Approach</strong>
+
+                    <strong>
+                        Work Approach
+                    </strong>
+
                     <span>
                         Structured, practical and process-focused
                     </span>
+
                 </div>
 
+
                 <div class="about-point">
-                    <strong>Core Strength</strong>
+
+                    <strong>
+                        Core Strength
+                    </strong>
+
                     <span>
                         Data handling, reporting and operational support
                     </span>
+
                 </div>
 
+
                 <div class="about-point">
-                    <strong>Tools</strong>
+
+                    <strong>
+                        Tools
+                    </strong>
+
                     <span>
-                        Excel, Word, Tally Prime, Canva and HTML-based tools
+                        Excel, Word, Tally Prime, Canva and HTML
                     </span>
+
                 </div>
 
+
                 <div class="about-point">
-                    <strong>Career Focus</strong>
+
+                    <strong>
+                        Career Focus
+                    </strong>
+
                     <span>
                         Operations, MIS, Data and Business Support
                     </span>
+
                 </div>
+
 
             </div>
 
@@ -1333,17 +1608,20 @@
 </section>
 
 
-<!-- =========================
+
+<!-- =====================================
      SKILLS
-========================= -->
+===================================== -->
 
 <section id="skills" class="skills-section">
 
     <div class="container">
 
+
         <div class="section-head">
 
             <div>
+
                 <div class="section-label">
                     Capabilities
                 </div>
@@ -1351,60 +1629,151 @@
                 <h2>
                     What I Work With
                 </h2>
+
             </div>
 
         </div>
 
 
+
         <div class="skills-grid">
 
-            <div class="skill">
-                <div class="skill-number">01</div>
-                <h3>Operations</h3>
-                <p>Day-to-day business and process support</p>
-            </div>
 
             <div class="skill">
-                <div class="skill-number">02</div>
-                <h3>MIS & Reporting</h3>
-                <p>Reports, structured information and tracking</p>
+
+                <div class="skill-number">
+                    01
+                </div>
+
+                <h3>
+                    Operations
+                </h3>
+
+                <p>
+                    Business and process support
+                </p>
+
             </div>
 
-            <div class="skill">
-                <div class="skill-number">03</div>
-                <h3>Microsoft Excel</h3>
-                <p>Data formatting, formulas and reporting</p>
-            </div>
 
             <div class="skill">
-                <div class="skill-number">04</div>
-                <h3>Data Management</h3>
-                <p>Organising and maintaining business data</p>
+
+                <div class="skill-number">
+                    02
+                </div>
+
+                <h3>
+                    MIS & Reporting
+                </h3>
+
+                <p>
+                    Reports, tracking and data handling
+                </p>
+
             </div>
 
-            <div class="skill">
-                <div class="skill-number">05</div>
-                <h3>Documentation</h3>
-                <p>Business documents and operational records</p>
-            </div>
 
             <div class="skill">
-                <div class="skill-number">06</div>
-                <h3>Finance Operations</h3>
-                <p>Practical exposure to finance workflows</p>
+
+                <div class="skill-number">
+                    03
+                </div>
+
+                <h3>
+                    Microsoft Excel
+                </h3>
+
+                <p>
+                    Data formatting and reporting
+                </p>
+
             </div>
 
-            <div class="skill">
-                <div class="skill-number">07</div>
-                <h3>Digital Tools</h3>
-                <p>Simple HTML-based workflow solutions</p>
-            </div>
 
             <div class="skill">
-                <div class="skill-number">08</div>
-                <h3>Computer Operations</h3>
-                <p>Business software and routine computer work</p>
+
+                <div class="skill-number">
+                    04
+                </div>
+
+                <h3>
+                    Data Management
+                </h3>
+
+                <p>
+                    Organising business information
+                </p>
+
             </div>
+
+
+            <div class="skill">
+
+                <div class="skill-number">
+                    05
+                </div>
+
+                <h3>
+                    Documentation
+                </h3>
+
+                <p>
+                    Operational records and documents
+                </p>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-number">
+                    06
+                </div>
+
+                <h3>
+                    Finance Operations
+                </h3>
+
+                <p>
+                    Finance workflow exposure
+                </p>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-number">
+                    07
+                </div>
+
+                <h3>
+                    Digital Tools
+                </h3>
+
+                <p>
+                    Simple HTML workflow solutions
+                </p>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-number">
+                    08
+                </div>
+
+                <h3>
+                    Computer Operations
+                </h3>
+
+                <p>
+                    Business software and computer work
+                </p>
+
+            </div>
+
 
         </div>
 
@@ -1413,17 +1782,20 @@
 </section>
 
 
-<!-- =========================
+
+<!-- =====================================
      EXPERIENCE
-========================= -->
+===================================== -->
 
 <section id="experience">
 
     <div class="container">
 
+
         <div class="section-head">
 
             <div>
+
                 <div class="section-label">
                     Career
                 </div>
@@ -1431,17 +1803,21 @@
                 <h2>
                     Experience
                 </h2>
+
             </div>
 
+
             <p>
-                Experience across finance operations,
-                business support and industrial environments.
+                Experience across business support,
+                finance operations and industrial environments.
             </p>
 
         </div>
 
 
+
         <div class="experience">
+
 
             <!-- Dhandhanya -->
 
@@ -1450,6 +1826,7 @@
                 <div class="experience-date">
                     2024 — Present
                 </div>
+
 
                 <div>
 
@@ -1462,24 +1839,42 @@
                     </div>
 
                     <p class="experience-desc">
-                        Working across business operations, MIS,
-                        reporting, documentation, data management
-                        and day-to-day computer-based workflows.
-                        Also involved in finance-related operational
-                        support and process documentation.
+
+                        Business operations, MIS, reporting,
+                        documentation, data management and
+                        finance-related operational support.
+
                     </p>
 
+
                     <div class="experience-tags">
-                        <span class="tag">Operations</span>
-                        <span class="tag">MIS</span>
-                        <span class="tag">Excel</span>
-                        <span class="tag">Data</span>
-                        <span class="tag">Documentation</span>
+
+                        <span class="tag">
+                            Operations
+                        </span>
+
+                        <span class="tag">
+                            MIS
+                        </span>
+
+                        <span class="tag">
+                            Excel
+                        </span>
+
+                        <span class="tag">
+                            Data
+                        </span>
+
+                        <span class="tag">
+                            Documentation
+                        </span>
+
                     </div>
 
                 </div>
 
             </div>
+
 
 
             <!-- Saviskaar -->
@@ -1489,6 +1884,7 @@
                 <div class="experience-date">
                     2023 — 2024
                 </div>
+
 
                 <div>
 
@@ -1500,22 +1896,41 @@
                         Saviskaar
                     </div>
 
+
                     <p class="experience-desc">
-                        Practical experience in operational and
-                        finance-related workflows, documentation,
-                        data handling and business support.
+
+                        Practical experience in operational
+                        and finance-related workflows,
+                        documentation, data handling and
+                        business support.
+
                     </p>
 
+
                     <div class="experience-tags">
-                        <span class="tag">Operations</span>
-                        <span class="tag">Finance Support</span>
-                        <span class="tag">Documentation</span>
-                        <span class="tag">Data Handling</span>
+
+                        <span class="tag">
+                            Operations
+                        </span>
+
+                        <span class="tag">
+                            Finance Support
+                        </span>
+
+                        <span class="tag">
+                            Documentation
+                        </span>
+
+                        <span class="tag">
+                            Data Handling
+                        </span>
+
                     </div>
 
                 </div>
 
             </div>
+
 
 
             <!-- Napino -->
@@ -1525,6 +1940,7 @@
                 <div class="experience-date">
                     2019 — 2021
                 </div>
+
 
                 <div>
 
@@ -1536,21 +1952,37 @@
                         Napino
                     </div>
 
+
                     <p class="experience-desc">
-                        Experience in an industrial working environment
-                        with practical exposure to routine operations,
-                        computer-based work and process discipline.
+
+                        Experience in an industrial working
+                        environment with practical exposure
+                        to routine operations, computer-based
+                        work and process discipline.
+
                     </p>
 
+
                     <div class="experience-tags">
-                        <span class="tag">Operations</span>
-                        <span class="tag">Process Work</span>
-                        <span class="tag">Computer Work</span>
+
+                        <span class="tag">
+                            Operations
+                        </span>
+
+                        <span class="tag">
+                            Process Work
+                        </span>
+
+                        <span class="tag">
+                            Computer Work
+                        </span>
+
                     </div>
 
                 </div>
 
             </div>
+
 
         </div>
 
@@ -1559,17 +1991,20 @@
 </section>
 
 
-<!-- =========================
+
+<!-- =====================================
      PROJECTS
-========================= -->
+===================================== -->
 
 <section id="projects" class="projects-section">
 
     <div class="container">
 
+
         <div class="section-head">
 
             <div>
+
                 <div class="section-label">
                     Selected Work
                 </div>
@@ -1577,19 +2012,23 @@
                 <h2>
                     Practical Projects
                 </h2>
+
             </div>
 
+
             <p>
-                Small business tools built to solve real
-                operational and reporting requirements.
+                Practical tools created for operational,
+                reporting and documentation workflows.
             </p>
 
         </div>
 
 
+
         <div class="projects-grid">
 
-            <!-- Project 01 -->
+
+            <!-- PROJECT 01 -->
 
             <article class="project">
 
@@ -1602,21 +2041,27 @@
                 </h3>
 
                 <p>
-                    A browser-based payment voucher workflow
-                    designed for structured entry, record handling
+
+                    Browser-based payment voucher workflow
+                    for structured entry, record handling
                     and printable business documentation.
+
                 </p>
+
 
                 <a
                     href="payment-voucher/"
                     class="project-link">
+
                     Open Project →
+
                 </a>
 
             </article>
 
 
-            <!-- Project 02 -->
+
+            <!-- PROJECT 02 -->
 
             <article class="project">
 
@@ -1629,21 +2074,27 @@
                 </h3>
 
                 <p>
-                    A practical reporting tool for organising
+
+                    Practical reporting tool for organising
                     daily payment collection data and preparing
                     structured operational reports.
+
                 </p>
+
 
                 <a
                     href="daily-payment-report.html"
                     class="project-link">
+
                     Open Project →
+
                 </a>
 
             </article>
 
 
-            <!-- Project 03 -->
+
+            <!-- PROJECT 03 -->
 
             <article class="project">
 
@@ -1656,21 +2107,27 @@
                 </h3>
 
                 <p>
-                    A simple HTML-based workflow for preparing
-                    structured bank deposit and NEFT payment
-                    information.
+
+                    HTML-based workflow for preparing
+                    structured bank deposit and NEFT
+                    payment information.
+
                 </p>
+
 
                 <a
                     href="bank-neft-automation.html"
                     class="project-link">
+
                     Open Project →
+
                 </a>
 
             </article>
 
 
-            <!-- Project 04 -->
+
+            <!-- PROJECT 04 -->
 
             <article class="project">
 
@@ -1683,21 +2140,27 @@
                 </h3>
 
                 <p>
-                    A professional email signature project with
-                    company branding, contact information and
-                    responsive HTML structure.
+
+                    Professional email signature project
+                    with company branding, contact information
+                    and HTML structure.
+
                 </p>
+
 
                 <a
                     href="email-signature/"
                     class="project-link">
+
                     Open Project →
+
                 </a>
 
             </article>
 
 
-            <!-- Project 05 -->
+
+            <!-- PROJECT 05 -->
 
             <article class="project coming-soon">
 
@@ -1710,9 +2173,12 @@
                 </h3>
 
                 <p>
-                    Advanced MIS dashboard project currently
-                    under development.
+
+                    Advanced MIS dashboard project
+                    currently under development.
+
                 </p>
+
 
                 <span class="project-link">
                     Coming Soon
@@ -1728,17 +2194,109 @@
 </section>
 
 
-<!-- =========================
-     HOW I WORK
-========================= -->
+
+<!-- =====================================
+     PORTFOLIO SUMMARY
+===================================== -->
+
+<section class="summary-section">
+
+    <div class="container">
+
+
+        <div class="section-head">
+
+            <div>
+
+                <div class="section-label">
+                    Documents
+                </div>
+
+                <h2>
+                    Portfolio Summary
+                </h2>
+
+            </div>
+
+
+            <p>
+                One-page overview of my skills,
+                experience and practical work.
+            </p>
+
+        </div>
+
+
+
+        <div class="summary-box">
+
+
+            <div class="summary-content">
+
+                <h3>
+                    Rahul Petwal — Portfolio Summary
+                </h3>
+
+
+                <p>
+
+                    A concise A4 document covering my
+                    professional profile, capabilities,
+                    experience, projects and technical exposure.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="summary-actions">
+
+
+                <a
+                    href="Rahul-Petwal-Portfolio-Summary.pdf"
+                    class="btn btn-primary"
+                    download>
+
+                    PDF ↓
+
+                </a>
+
+
+                <a
+                    href="Rahul-Petwal-Portfolio-Summary.docx"
+                    class="btn btn-outline"
+                    download>
+
+                    Word ↓
+
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     WORKING STYLE
+===================================== -->
 
 <section>
 
     <div class="container">
 
+
         <div class="section-head">
 
             <div>
+
                 <div class="section-label">
                     Working Style
                 </div>
@@ -1746,12 +2304,15 @@
                 <h2>
                     Simple. Structured. Useful.
                 </h2>
+
             </div>
 
         </div>
 
 
+
         <div class="process-grid">
+
 
             <div class="process-item">
 
@@ -1764,11 +2325,14 @@
                 </h3>
 
                 <p>
-                    Understand the workflow, data and
-                    actual business requirement.
+
+                    Understand the workflow,
+                    data and actual requirement.
+
                 </p>
 
             </div>
+
 
 
             <div class="process-item">
@@ -1782,11 +2346,14 @@
                 </h3>
 
                 <p>
-                    Structure information so that it is
+
+                    Structure information so it becomes
                     easier to manage, track and report.
+
                 </p>
 
             </div>
+
 
 
             <div class="process-item">
@@ -1800,11 +2367,14 @@
                 </h3>
 
                 <p>
+
                     Use practical tools and simple systems
                     to reduce repetitive work.
+
                 </p>
 
             </div>
+
 
         </div>
 
@@ -1813,15 +2383,18 @@
 </section>
 
 
-<!-- =========================
+
+<!-- =====================================
      CTA
-========================= -->
+===================================== -->
 
 <section class="cta">
 
     <div class="container">
 
+
         <div class="cta-box">
+
 
             <div>
 
@@ -1830,31 +2403,43 @@
                 </h2>
 
                 <p>
-                    Open to relevant opportunities in Operations,
-                    MIS, Data Management and Business Support.
+
+                    Open to relevant opportunities in
+                    Operations, MIS, Data Management
+                    and Business Support.
+
                 </p>
 
             </div>
 
 
+
             <div class="cta-actions">
 
+
                 <a
-                    href="Rahul-Petwal-Resume.pdf"
+                    href="Rahul-Petwal-Portfolio-Summary.pdf"
                     class="btn btn-primary"
                     download>
-                    Download CV ↓
+
+                    Portfolio PDF ↓
+
                 </a>
+
 
                 <a
                     href="https://www.linkedin.com/in/rahulpetwal"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="btn btn-outline">
+
                     LinkedIn ↗
+
                 </a>
 
+
             </div>
+
 
         </div>
 
@@ -1863,15 +2448,18 @@
 </section>
 
 
-<!-- =========================
+
+<!-- =====================================
      CONTACT
-========================= -->
+===================================== -->
 
 <section id="contact">
 
     <div class="container">
 
+
         <div class="contact-grid">
+
 
             <div class="contact-intro">
 
@@ -1879,20 +2467,26 @@
                     Contact
                 </div>
 
+
                 <h2>
                     Available for the right opportunity.
                 </h2>
 
+
                 <p>
+
                     For professional opportunities,
                     collaborations or work-related queries,
                     you can reach me through the details below.
+
                 </p>
 
             </div>
 
 
+
             <div class="contact-list">
+
 
                 <div class="contact-item">
 
@@ -1905,6 +2499,7 @@
                     </a>
 
                 </div>
+
 
 
                 <div class="contact-item">
@@ -1920,6 +2515,7 @@
                 </div>
 
 
+
                 <div class="contact-item">
 
                     <small>
@@ -1930,10 +2526,13 @@
                         href="https://www.linkedin.com/in/rahulpetwal"
                         target="_blank"
                         rel="noopener noreferrer">
+
                         linkedin.com/in/rahulpetwal
+
                     </a>
 
                 </div>
+
 
 
                 <div class="contact-item">
@@ -1948,6 +2547,7 @@
 
                 </div>
 
+
             </div>
 
         </div>
@@ -1956,20 +2556,24 @@
 
 </section>
 
+
 </main>
 
 
-<!-- =========================
+
+<!-- =====================================
      FOOTER
-========================= -->
+===================================== -->
 
 <footer>
 
     <div class="container footer-inner">
 
+
         <p>
             © 2026 Rahul Petwal. All rights reserved.
         </p>
+
 
         <div class="footer-links">
 
@@ -1981,9 +2585,16 @@
                 Projects
             </a>
 
-            <a href="Rahul-Petwal-Resume.pdf"
-               download>
+            <a
+                href="Rahul-Petwal-Resume.pdf"
+                download>
                 CV
+            </a>
+
+            <a
+                href="Rahul-Petwal-Portfolio-Summary.pdf"
+                download>
+                Portfolio PDF
             </a>
 
             <a
@@ -1998,6 +2609,7 @@
     </div>
 
 </footer>
+
 
 </body>
 </html>
