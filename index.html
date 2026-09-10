@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Rahul Petwal | Operations & MIS Professional</title>
 
-    <meta name="description"
-          content="Rahul Petwal - Operations, MIS, Excel, Data Management and Business Support Professional.">
+    <meta
+        name="description"
+        content="Rahul Petwal - Operations, MIS, Excel, Data Management and Business Support Professional."
+    >
 
     <meta name="author" content="Rahul Petwal">
 
     <style>
 
-        /* ==============================
+        /* =====================================================
            RESET
-        ============================== */
+        ===================================================== */
 
         * {
             margin: 0;
@@ -43,8 +47,8 @@
         }
 
         a {
-            color: inherit;
             text-decoration: none;
+            color: inherit;
         }
 
         img {
@@ -58,16 +62,17 @@
         }
 
 
-        /* ==============================
+        /* =====================================================
            HEADER
-        ============================== */
+        ===================================================== */
 
         header {
             position: sticky;
             top: 0;
             z-index: 1000;
 
-            background: rgba(255,255,255,0.94);
+            background: rgba(255, 255, 255, 0.94);
+
             backdrop-filter: blur(12px);
 
             border-bottom: 1px solid #e5eaf0;
@@ -88,10 +93,10 @@
             align-items: center;
             gap: 11px;
 
+            color: #111827;
+
             font-size: 17px;
             font-weight: 750;
-
-            color: #111827;
         }
 
         .brand-mark {
@@ -115,14 +120,15 @@
 
             display: flex;
             align-items: center;
+
             gap: 27px;
         }
 
         nav a {
+            color: #647084;
+
             font-size: 13px;
             font-weight: 600;
-
-            color: #647084;
 
             transition: 0.2s ease;
         }
@@ -134,17 +140,16 @@
         .nav-contact {
             padding: 8px 15px;
 
+            background: #ffffff;
+
             border: 1px solid #d8dfe8;
             border-radius: 8px;
-
-            background: #ffffff;
-            color: #172033;
         }
 
 
-        /* ==============================
+        /* =====================================================
            HERO
-        ============================== */
+        ===================================================== */
 
         .hero {
             padding: 92px 0 78px;
@@ -152,7 +157,7 @@
             background:
                 radial-gradient(
                     circle at 82% 12%,
-                    rgba(37,99,235,0.07),
+                    rgba(37, 99, 235, 0.07),
                     transparent 30%
                 ),
                 #f8fafc;
@@ -160,15 +165,18 @@
 
         .hero-grid {
             display: grid;
+
             grid-template-columns: 1.35fr 0.65fr;
 
             gap: 70px;
+
             align-items: center;
         }
 
         .eyebrow {
             display: inline-flex;
             align-items: center;
+
             gap: 8px;
 
             margin-bottom: 20px;
@@ -179,6 +187,7 @@
             font-weight: 800;
 
             letter-spacing: 1px;
+
             text-transform: uppercase;
         }
 
@@ -196,14 +205,15 @@
         .hero h1 {
             max-width: 760px;
 
-            font-size: clamp(43px, 6vw, 70px);
-            line-height: 1.04;
-
-            letter-spacing: -3.4px;
+            margin-bottom: 24px;
 
             color: #111827;
 
-            margin-bottom: 24px;
+            font-size: clamp(43px, 6vw, 70px);
+
+            line-height: 1.04;
+
+            letter-spacing: -3.4px;
         }
 
         .hero h1 span {
@@ -218,12 +228,15 @@
             color: #596579;
 
             font-size: 17px;
+
             line-height: 1.75;
         }
 
         .hero-actions {
             display: flex;
+
             flex-wrap: wrap;
+
             gap: 10px;
         }
 
@@ -231,7 +244,9 @@
             min-height: 44px;
 
             display: inline-flex;
+
             align-items: center;
+
             justify-content: center;
 
             padding: 0 17px;
@@ -239,6 +254,7 @@
             border-radius: 8px;
 
             font-size: 13px;
+
             font-weight: 700;
 
             transition: 0.2s ease;
@@ -246,13 +262,15 @@
 
         .btn-primary {
             background: #111827;
-            color: #ffffff;
 
             border: 1px solid #111827;
+
+            color: #ffffff;
         }
 
         .btn-primary:hover {
             background: #263246;
+
             border-color: #263246;
 
             transform: translateY(-1px);
@@ -260,9 +278,10 @@
 
         .btn-outline {
             background: #ffffff;
-            color: #172033;
 
             border: 1px solid #d5dce5;
+
+            color: #172033;
         }
 
         .btn-outline:hover {
@@ -272,12 +291,13 @@
         }
 
 
-        /* ==============================
+        /* =====================================================
            PROFILE
-        ============================== */
+        ===================================================== */
 
         .profile-area {
             display: flex;
+
             justify-content: center;
         }
 
@@ -289,14 +309,16 @@
             background: #ffffff;
 
             border: 1px solid #e1e7ee;
+
             border-radius: 19px;
 
             box-shadow:
-                0 22px 55px rgba(15,23,42,0.08);
+                0 22px 55px rgba(15, 23, 42, 0.08);
         }
 
         .profile-photo {
             width: 100%;
+
             aspect-ratio: 1 / 1;
 
             object-fit: cover;
@@ -327,19 +349,21 @@
         }
 
 
-        /* ==============================
+        /* =====================================================
            QUICK INFO
-        ============================== */
+        ===================================================== */
 
         .quick-strip {
             background: #ffffff;
 
             border-top: 1px solid #e3e8ef;
+
             border-bottom: 1px solid #e3e8ef;
         }
 
         .quick-grid {
             display: grid;
+
             grid-template-columns: repeat(4, 1fr);
         }
 
@@ -372,9 +396,9 @@
         }
 
 
-        /* ==============================
-           GENERAL SECTION
-        ============================== */
+        /* =====================================================
+           SECTIONS
+        ===================================================== */
 
         section {
             padding: 92px 0;
@@ -382,7 +406,9 @@
 
         .section-head {
             display: flex;
-            align-items: end;
+
+            align-items: flex-end;
+
             justify-content: space-between;
 
             gap: 30px;
@@ -396,9 +422,11 @@
             color: #2563eb;
 
             font-size: 11px;
+
             font-weight: 800;
 
             letter-spacing: 1.6px;
+
             text-transform: uppercase;
         }
 
@@ -406,6 +434,7 @@
             color: #111827;
 
             font-size: clamp(30px, 4vw, 43px);
+
             line-height: 1.15;
 
             letter-spacing: -1.6px;
@@ -420,12 +449,13 @@
         }
 
 
-        /* ==============================
+        /* =====================================================
            ABOUT
-        ============================== */
+        ===================================================== */
 
         .about-grid {
             display: grid;
+
             grid-template-columns: 1.1fr 0.9fr;
 
             gap: 60px;
@@ -435,6 +465,7 @@
             color: #536074;
 
             font-size: 16px;
+
             line-height: 1.85;
         }
 
@@ -444,6 +475,7 @@
 
         .about-points {
             display: grid;
+
             gap: 11px;
         }
 
@@ -453,6 +485,7 @@
             background: #ffffff;
 
             border: 1px solid #e1e7ee;
+
             border-radius: 10px;
         }
 
@@ -475,19 +508,21 @@
         }
 
 
-        /* ==============================
+        /* =====================================================
            SKILLS
-        ============================== */
+        ===================================================== */
 
         .skills-section {
             background: #ffffff;
 
             border-top: 1px solid #e8edf3;
+
             border-bottom: 1px solid #e8edf3;
         }
 
         .skills-grid {
             display: grid;
+
             grid-template-columns: repeat(4, 1fr);
 
             gap: 13px;
@@ -501,6 +536,7 @@
             background: #fbfcfe;
 
             border: 1px solid #e1e7ee;
+
             border-radius: 11px;
 
             transition: 0.2s ease;
@@ -512,13 +548,14 @@
             border-color: #cbd5e1;
 
             box-shadow:
-                0 12px 32px rgba(15,23,42,0.05);
+                0 12px 32px rgba(15, 23, 42, 0.05);
         }
 
         .skill-number {
             color: #2563eb;
 
             font-size: 10px;
+
             font-weight: 800;
         }
 
@@ -539,12 +576,13 @@
         }
 
 
-        /* ==============================
+        /* =====================================================
            EXPERIENCE
-        ============================== */
+        ===================================================== */
 
         .experience-item {
             display: grid;
+
             grid-template-columns: 180px 1fr;
 
             gap: 45px;
@@ -562,6 +600,7 @@
             color: #687386;
 
             font-size: 12px;
+
             font-weight: 700;
         }
 
@@ -569,6 +608,7 @@
             color: #111827;
 
             font-size: 19px;
+
             font-weight: 750;
         }
 
@@ -578,6 +618,7 @@
             color: #2563eb;
 
             font-size: 13px;
+
             font-weight: 700;
         }
 
@@ -589,11 +630,13 @@
             color: #687386;
 
             font-size: 13px;
+
             line-height: 1.75;
         }
 
         .experience-tags {
             display: flex;
+
             flex-wrap: wrap;
 
             gap: 6px;
@@ -607,28 +650,32 @@
             background: #f1f5f9;
 
             border: 1px solid #e2e8f0;
+
             border-radius: 5px;
 
             color: #536074;
 
             font-size: 10px;
+
             font-weight: 650;
         }
 
 
-        /* ==============================
+        /* =====================================================
            PROJECTS
-        ============================== */
+        ===================================================== */
 
         .projects-section {
             background: #ffffff;
 
             border-top: 1px solid #e8edf3;
+
             border-bottom: 1px solid #e8edf3;
         }
 
         .projects-grid {
             display: grid;
+
             grid-template-columns: repeat(2, 1fr);
 
             gap: 17px;
@@ -644,6 +691,7 @@
             background: #ffffff;
 
             border: 1px solid #e1e7ee;
+
             border-radius: 13px;
 
             transition: 0.22s ease;
@@ -655,13 +703,14 @@
             border-color: #cbd5e1;
 
             box-shadow:
-                0 18px 45px rgba(15,23,42,0.07);
+                0 18px 45px rgba(15, 23, 42, 0.07);
         }
 
         .project-number {
             color: #2563eb;
 
             font-size: 10px;
+
             font-weight: 800;
 
             letter-spacing: 0.5px;
@@ -673,6 +722,7 @@
             color: #111827;
 
             font-size: 19px;
+
             line-height: 1.35;
         }
 
@@ -684,6 +734,7 @@
             color: #687386;
 
             font-size: 13px;
+
             line-height: 1.7;
         }
 
@@ -691,11 +742,13 @@
             position: absolute;
 
             left: 27px;
+
             bottom: 23px;
 
             color: #2563eb;
 
             font-size: 12px;
+
             font-weight: 750;
         }
 
@@ -721,65 +774,196 @@
         }
 
 
-        /* ==============================
-           PORTFOLIO SUMMARY DOWNLOAD
-        ============================== */
+        /* =====================================================
+           PORTFOLIO SUMMARY
+        ===================================================== */
 
         .summary-section {
             background: #f8fafc;
+
+            border-top: 1px solid #e8edf3;
+
+            border-bottom: 1px solid #e8edf3;
         }
 
         .summary-box {
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
 
             gap: 35px;
 
-            padding: 34px;
+            padding: 30px;
 
             background: #ffffff;
 
             border: 1px solid #dfe6ee;
+
             border-radius: 14px;
 
             box-shadow:
-                0 12px 35px rgba(15,23,42,0.04);
+                0 12px 35px rgba(15, 23, 42, 0.04);
+        }
+
+        .summary-content {
+            display: flex;
+
+            align-items: center;
+
+            gap: 17px;
+        }
+
+        .document-icon {
+            width: 52px;
+            height: 62px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-shrink: 0;
+
+            background: #f8fafc;
+
+            border: 1px solid #dce3eb;
+
+            border-radius: 8px;
+
+            color: #2563eb;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 0.5px;
         }
 
         .summary-content h3 {
             color: #111827;
 
-            font-size: 23px;
-            letter-spacing: -0.6px;
+            font-size: 20px;
+
+            line-height: 1.3;
+
+            letter-spacing: -0.5px;
         }
 
         .summary-content p {
-            max-width: 620px;
+            max-width: 580px;
 
             margin-top: 6px;
 
             color: #687386;
 
             font-size: 13px;
+
+            line-height: 1.6;
         }
 
         .summary-actions {
             display: flex;
-            flex-wrap: wrap;
 
-            gap: 9px;
+            gap: 10px;
 
             flex-shrink: 0;
         }
 
+        .download-btn {
+            min-width: 155px;
 
-        /* ==============================
-           PROCESS
-        ============================== */
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding: 11px 13px;
+
+            border-radius: 8px;
+
+            transition: 0.2s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .pdf-btn {
+            background: #111827;
+
+            border: 1px solid #111827;
+
+            color: #ffffff;
+        }
+
+        .pdf-btn:hover {
+            background: #263246;
+
+            border-color: #263246;
+        }
+
+        .word-btn {
+            background: #ffffff;
+
+            border: 1px solid #d5dce5;
+
+            color: #172033;
+        }
+
+        .word-btn:hover {
+            background: #f8fafc;
+
+            border-color: #9ba7b6;
+        }
+
+        .download-type {
+            min-width: 35px;
+
+            padding: 5px 4px;
+
+            text-align: center;
+
+            border-radius: 5px;
+
+            background: rgba(255,255,255,0.12);
+
+            font-size: 9px;
+
+            font-weight: 800;
+        }
+
+        .word-btn .download-type {
+            background: #eef2f7;
+
+            color: #2563eb;
+        }
+
+        .download-text {
+            flex: 1;
+
+            font-size: 12px;
+
+            font-weight: 700;
+        }
+
+        .download-arrow {
+            font-size: 16px;
+
+            font-weight: 700;
+        }
+
+
+        /* =====================================================
+           WORKING STYLE
+        ===================================================== */
 
         .process-grid {
             display: grid;
+
             grid-template-columns: repeat(3, 1fr);
 
             overflow: hidden;
@@ -787,6 +971,7 @@
             background: #ffffff;
 
             border: 1px solid #e1e7ee;
+
             border-radius: 13px;
         }
 
@@ -804,6 +989,7 @@
             color: #2563eb;
 
             font-size: 11px;
+
             font-weight: 800;
         }
 
@@ -824,9 +1010,9 @@
         }
 
 
-        /* ==============================
+        /* =====================================================
            CTA
-        ============================== */
+        ===================================================== */
 
         .cta {
             padding: 75px 0;
@@ -834,7 +1020,9 @@
 
         .cta-box {
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
 
             gap: 30px;
@@ -852,6 +1040,7 @@
             color: #ffffff;
 
             font-size: 30px;
+
             letter-spacing: -1px;
         }
 
@@ -865,6 +1054,7 @@
 
         .cta-actions {
             display: flex;
+
             flex-wrap: wrap;
 
             gap: 9px;
@@ -872,25 +1062,28 @@
 
         .cta .btn-primary {
             background: #ffffff;
-            color: #111827;
 
             border-color: #ffffff;
+
+            color: #111827;
         }
 
         .cta .btn-outline {
             background: transparent;
-            color: #ffffff;
 
             border-color: #4b5563;
+
+            color: #ffffff;
         }
 
 
-        /* ==============================
+        /* =====================================================
            CONTACT
-        ============================== */
+        ===================================================== */
 
         .contact-grid {
             display: grid;
+
             grid-template-columns: 0.8fr 1.2fr;
 
             gap: 60px;
@@ -900,6 +1093,7 @@
             color: #111827;
 
             font-size: 33px;
+
             line-height: 1.2;
 
             letter-spacing: -1px;
@@ -915,6 +1109,7 @@
 
         .contact-list {
             display: grid;
+
             gap: 11px;
         }
 
@@ -924,6 +1119,7 @@
             background: #ffffff;
 
             border: 1px solid #e1e7ee;
+
             border-radius: 9px;
         }
 
@@ -933,9 +1129,11 @@
             color: #8a94a5;
 
             font-size: 9px;
+
             font-weight: 800;
 
             letter-spacing: 1.2px;
+
             text-transform: uppercase;
         }
 
@@ -948,6 +1146,7 @@
             color: #172033;
 
             font-size: 13px;
+
             font-weight: 650;
 
             word-break: break-word;
@@ -958,9 +1157,9 @@
         }
 
 
-        /* ==============================
+        /* =====================================================
            FOOTER
-        ============================== */
+        ===================================================== */
 
         footer {
             padding: 27px 0;
@@ -972,7 +1171,9 @@
 
         .footer-inner {
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
 
             gap: 20px;
@@ -986,6 +1187,7 @@
 
         .footer-links {
             display: flex;
+
             gap: 17px;
         }
 
@@ -993,6 +1195,7 @@
             color: #596579;
 
             font-size: 11px;
+
             font-weight: 650;
         }
 
@@ -1001,14 +1204,15 @@
         }
 
 
-        /* ==============================
+        /* =====================================================
            TABLET
-        ============================== */
+        ===================================================== */
 
         @media (max-width: 900px) {
 
             .hero-grid {
                 grid-template-columns: 1fr;
+
                 gap: 45px;
             }
 
@@ -1022,6 +1226,7 @@
 
             .about-grid {
                 grid-template-columns: 1fr;
+
                 gap: 35px;
             }
 
@@ -1043,11 +1248,13 @@
 
             .experience-item {
                 grid-template-columns: 1fr;
+
                 gap: 7px;
             }
 
             .contact-grid {
                 grid-template-columns: 1fr;
+
                 gap: 35px;
             }
 
@@ -1056,14 +1263,15 @@
             }
 
             .summary-actions {
-                margin-top: 20px;
+                margin-top: 22px;
             }
+
         }
 
 
-        /* ==============================
+        /* =====================================================
            MOBILE
-        ============================== */
+        ===================================================== */
 
         @media (max-width: 700px) {
 
@@ -1131,6 +1339,7 @@
 
             .process-item {
                 border-right: none;
+
                 border-bottom: 1px solid #e1e7ee;
             }
 
@@ -1154,15 +1363,18 @@
 
             .footer-links {
                 margin-top: 11px;
+
+                flex-wrap: wrap;
             }
+
         }
 
 
-        /* ==============================
+        /* =====================================================
            SMALL MOBILE
-        ============================== */
+        ===================================================== */
 
-        @media (max-width: 450px) {
+        @media (max-width: 550px) {
 
             .quick-grid {
                 grid-template-columns: 1fr;
@@ -1170,6 +1382,7 @@
 
             .quick-item {
                 border-right: none;
+
                 border-bottom: 1px solid #e3e8ef;
             }
 
@@ -1185,6 +1398,7 @@
             .summary-actions,
             .cta-actions {
                 flex-direction: column;
+
                 align-items: stretch;
             }
 
@@ -1195,18 +1409,28 @@
             .summary-box {
                 padding: 25px;
             }
+
+            .summary-content {
+                align-items: flex-start;
+            }
+
+            .download-btn {
+                width: 100%;
+            }
+
         }
 
     </style>
+
 </head>
 
 
 <body>
 
 
-<!-- =====================================
+<!-- =====================================================
      HEADER
-===================================== -->
+===================================================== -->
 
 <header>
 
@@ -1272,9 +1496,9 @@
 <main id="top">
 
 
-<!-- =====================================
+<!-- =====================================================
      HERO
-===================================== -->
+===================================================== -->
 
 <section class="hero">
 
@@ -1311,6 +1535,7 @@
 
             <div class="hero-actions">
 
+
                 <a
                     href="#projects"
                     class="btn btn-primary">
@@ -1340,6 +1565,7 @@
 
                 </a>
 
+
             </div>
 
         </div>
@@ -1349,6 +1575,7 @@
         <div class="profile-area">
 
             <div class="profile-card">
+
 
                 <img
                     src="rahul-profile.jpg"
@@ -1369,6 +1596,7 @@
 
                 </div>
 
+
             </div>
 
         </div>
@@ -1380,9 +1608,9 @@
 
 
 
-<!-- =====================================
+<!-- =====================================================
      QUICK OVERVIEW
-===================================== -->
+===================================================== -->
 
 <div class="quick-strip">
 
@@ -1447,9 +1675,9 @@
 
 
 
-<!-- =====================================
+<!-- =====================================================
      ABOUT
-===================================== -->
+===================================================== -->
 
 <section id="about">
 
@@ -1457,6 +1685,7 @@
 
 
         <div class="section-head">
+
 
             <div>
 
@@ -1476,6 +1705,7 @@
                 MIS, data handling and business support.
             </p>
 
+
         </div>
 
 
@@ -1484,6 +1714,7 @@
 
 
             <div class="about-main">
+
 
                 <p>
 
@@ -1539,6 +1770,7 @@
                     </strong>
 
                 </p>
+
 
             </div>
 
@@ -1601,6 +1833,7 @@
 
             </div>
 
+
         </div>
 
     </div>
@@ -1609,9 +1842,9 @@
 
 
 
-<!-- =====================================
+<!-- =====================================================
      SKILLS
-===================================== -->
+===================================================== -->
 
 <section id="skills" class="skills-section">
 
@@ -1619,6 +1852,7 @@
 
 
         <div class="section-head">
+
 
             <div>
 
@@ -1631,6 +1865,7 @@
                 </h2>
 
             </div>
+
 
         </div>
 
@@ -1783,9 +2018,9 @@
 
 
 
-<!-- =====================================
+<!-- =====================================================
      EXPERIENCE
-===================================== -->
+===================================================== -->
 
 <section id="experience">
 
@@ -1793,6 +2028,7 @@
 
 
         <div class="section-head">
+
 
             <div>
 
@@ -1812,6 +2048,7 @@
                 finance operations and industrial environments.
             </p>
 
+
         </div>
 
 
@@ -1819,9 +2056,10 @@
         <div class="experience">
 
 
-            <!-- Dhandhanya -->
+            <!-- DHANDHANYA -->
 
             <div class="experience-item">
+
 
                 <div class="experience-date">
                     2024 — Present
@@ -1830,13 +2068,16 @@
 
                 <div>
 
+
                     <div class="experience-role">
                         Operations & MIS
                     </div>
 
+
                     <div class="experience-company">
                         Dhandhanya
                     </div>
+
 
                     <p class="experience-desc">
 
@@ -1871,15 +2112,18 @@
 
                     </div>
 
+
                 </div>
+
 
             </div>
 
 
 
-            <!-- Saviskaar -->
+            <!-- SAVISKAAR -->
 
             <div class="experience-item">
+
 
                 <div class="experience-date">
                     2023 — 2024
@@ -1888,9 +2132,11 @@
 
                 <div>
 
+
                     <div class="experience-role">
                         Operations / Finance Support
                     </div>
+
 
                     <div class="experience-company">
                         Saviskaar
@@ -1927,15 +2173,18 @@
 
                     </div>
 
+
                 </div>
+
 
             </div>
 
 
 
-            <!-- Napino -->
+            <!-- NAPINO -->
 
             <div class="experience-item">
+
 
                 <div class="experience-date">
                     2019 — 2021
@@ -1944,9 +2193,11 @@
 
                 <div>
 
+
                     <div class="experience-role">
                         Industrial Operations
                     </div>
+
 
                     <div class="experience-company">
                         Napino
@@ -1979,7 +2230,9 @@
 
                     </div>
 
+
                 </div>
+
 
             </div>
 
@@ -1992,9 +2245,9 @@
 
 
 
-<!-- =====================================
+<!-- =====================================================
      PROJECTS
-===================================== -->
+===================================================== -->
 
 <section id="projects" class="projects-section">
 
@@ -2002,6 +2255,7 @@
 
 
         <div class="section-head">
+
 
             <div>
 
@@ -2021,6 +2275,7 @@
                 reporting and documentation workflows.
             </p>
 
+
         </div>
 
 
@@ -2032,13 +2287,16 @@
 
             <article class="project">
 
+
                 <div class="project-number">
                     01 / OPERATIONS
                 </div>
 
+
                 <h3>
                     Payment Voucher System
                 </h3>
+
 
                 <p>
 
@@ -2057,6 +2315,7 @@
 
                 </a>
 
+
             </article>
 
 
@@ -2065,13 +2324,16 @@
 
             <article class="project">
 
+
                 <div class="project-number">
                     02 / REPORTING
                 </div>
 
+
                 <h3>
                     Daily Payment Collection & Reporting System
                 </h3>
+
 
                 <p>
 
@@ -2090,6 +2352,7 @@
 
                 </a>
 
+
             </article>
 
 
@@ -2098,13 +2361,16 @@
 
             <article class="project">
 
+
                 <div class="project-number">
                     03 / FINANCE OPERATIONS
                 </div>
 
+
                 <h3>
                     Bank Deposit & NEFT Payment Automation
                 </h3>
+
 
                 <p>
 
@@ -2123,6 +2389,7 @@
 
                 </a>
 
+
             </article>
 
 
@@ -2131,13 +2398,16 @@
 
             <article class="project">
 
+
                 <div class="project-number">
                     04 / COMMUNICATION
                 </div>
 
+
                 <h3>
                     Professional HTML Email Signature
                 </h3>
+
 
                 <p>
 
@@ -2156,6 +2426,7 @@
 
                 </a>
 
+
             </article>
 
 
@@ -2164,13 +2435,16 @@
 
             <article class="project coming-soon">
 
+
                 <div class="project-number">
                     05 / MIS
                 </div>
 
+
                 <h3>
                     MIS Dashboard
                 </h3>
+
 
                 <p>
 
@@ -2184,6 +2458,7 @@
                     Coming Soon
                 </span>
 
+
             </article>
 
 
@@ -2195,22 +2470,26 @@
 
 
 
-<!-- =====================================
-     PORTFOLIO SUMMARY
-===================================== -->
+<!-- =====================================================
+     PORTFOLIO SUMMARY DOWNLOAD
+===================================================== -->
 
-<section class="summary-section">
+<section
+    id="portfolio-summary"
+    class="summary-section">
 
     <div class="container">
 
 
         <div class="section-head">
 
+
             <div>
 
                 <div class="section-label">
                     Documents
                 </div>
+
 
                 <h2>
                     Portfolio Summary
@@ -2220,9 +2499,12 @@
 
 
             <p>
-                One-page overview of my skills,
-                experience and practical work.
+
+                One-page professional overview of
+                my profile, skills, experience and projects.
+
             </p>
+
 
         </div>
 
@@ -2233,18 +2515,30 @@
 
             <div class="summary-content">
 
-                <h3>
-                    Rahul Petwal — Portfolio Summary
-                </h3>
+
+                <div class="document-icon">
+                    PDF
+                </div>
 
 
-                <p>
+                <div>
 
-                    A concise A4 document covering my
-                    professional profile, capabilities,
-                    experience, projects and technical exposure.
+                    <h3>
+                        Rahul Petwal — Portfolio Summary
+                    </h3>
 
-                </p>
+
+                    <p>
+
+                        A professional A4 document covering
+                        my profile, core capabilities,
+                        experience, practical projects
+                        and technical exposure.
+
+                    </p>
+
+                </div>
+
 
             </div>
 
@@ -2253,22 +2547,48 @@
             <div class="summary-actions">
 
 
-                <a
-                    href="Rahul-Petwal-Portfolio-Summary.pdf"
-                    class="btn btn-primary"
-                    download>
+                <!-- PDF DOWNLOAD -->
 
-                    PDF ↓
+                <a
+                    href="./Rahul-Petwal-Portfolio-Summary.pdf"
+                    class="download-btn pdf-btn"
+                    download="Rahul-Petwal-Portfolio-Summary.pdf"
+                    target="_blank">
+
+                    <span class="download-type">
+                        PDF
+                    </span>
+
+                    <span class="download-text">
+                        Download PDF
+                    </span>
+
+                    <span class="download-arrow">
+                        ↓
+                    </span>
 
                 </a>
 
 
-                <a
-                    href="Rahul-Petwal-Portfolio-Summary.docx"
-                    class="btn btn-outline"
-                    download>
 
-                    Word ↓
+                <!-- WORD DOWNLOAD -->
+
+                <a
+                    href="./Rahul-Petwal-Portfolio-Summary.docx"
+                    class="download-btn word-btn"
+                    download="Rahul-Petwal-Portfolio-Summary.docx">
+
+                    <span class="download-type">
+                        DOCX
+                    </span>
+
+                    <span class="download-text">
+                        Download Word
+                    </span>
+
+                    <span class="download-arrow">
+                        ↓
+                    </span>
 
                 </a>
 
@@ -2284,9 +2604,9 @@
 
 
 
-<!-- =====================================
+<!-- =====================================================
      WORKING STYLE
-===================================== -->
+===================================================== -->
 
 <section>
 
@@ -2295,17 +2615,20 @@
 
         <div class="section-head">
 
+
             <div>
 
                 <div class="section-label">
                     Working Style
                 </div>
 
+
                 <h2>
                     Simple. Structured. Useful.
                 </h2>
 
             </div>
+
 
         </div>
 
@@ -2316,13 +2639,16 @@
 
             <div class="process-item">
 
+
                 <div class="process-number">
                     01
                 </div>
 
+
                 <h3>
                     Understand
                 </h3>
+
 
                 <p>
 
@@ -2331,19 +2657,23 @@
 
                 </p>
 
+
             </div>
 
 
 
             <div class="process-item">
 
+
                 <div class="process-number">
                     02
                 </div>
 
+
                 <h3>
                     Organise
                 </h3>
+
 
                 <p>
 
@@ -2352,19 +2682,23 @@
 
                 </p>
 
+
             </div>
 
 
 
             <div class="process-item">
 
+
                 <div class="process-number">
                     03
                 </div>
 
+
                 <h3>
                     Improve
                 </h3>
+
 
                 <p>
 
@@ -2372,6 +2706,7 @@
                     to reduce repetitive work.
 
                 </p>
+
 
             </div>
 
@@ -2384,9 +2719,9 @@
 
 
 
-<!-- =====================================
+<!-- =====================================================
      CTA
-===================================== -->
+===================================================== -->
 
 <section class="cta">
 
@@ -2401,6 +2736,7 @@
                 <h2>
                     Let's connect.
                 </h2>
+
 
                 <p>
 
@@ -2418,11 +2754,11 @@
 
 
                 <a
-                    href="Rahul-Petwal-Portfolio-Summary.pdf"
+                    href="Rahul-Petwal-Resume.pdf"
                     class="btn btn-primary"
                     download>
 
-                    Portfolio PDF ↓
+                    Download CV ↓
 
                 </a>
 
@@ -2449,9 +2785,9 @@
 
 
 
-<!-- =====================================
+<!-- =====================================================
      CONTACT
-===================================== -->
+===================================================== -->
 
 <section id="contact">
 
@@ -2462,6 +2798,7 @@
 
 
             <div class="contact-intro">
+
 
                 <div class="section-label">
                     Contact
@@ -2481,6 +2818,7 @@
 
                 </p>
 
+
             </div>
 
 
@@ -2494,8 +2832,11 @@
                         Email
                     </small>
 
+
                     <a href="mailto:rahulpetwal7@gmail.com">
+
                         rahulpetwal7@gmail.com
+
                     </a>
 
                 </div>
@@ -2508,8 +2849,11 @@
                         Phone
                     </small>
 
+
                     <a href="tel:+919758927549">
+
                         +91 97589 27549
+
                     </a>
 
                 </div>
@@ -2521,6 +2865,7 @@
                     <small>
                         LinkedIn
                     </small>
+
 
                     <a
                         href="https://www.linkedin.com/in/rahulpetwal"
@@ -2541,6 +2886,7 @@
                         Location
                     </small>
 
+
                     <span>
                         Uttarakhand, India
                     </span>
@@ -2549,6 +2895,7 @@
 
 
             </div>
+
 
         </div>
 
@@ -2561,9 +2908,9 @@
 
 
 
-<!-- =====================================
+<!-- =====================================================
      FOOTER
-===================================== -->
+===================================================== -->
 
 <footer>
 
@@ -2577,34 +2924,46 @@
 
         <div class="footer-links">
 
+
             <a href="#about">
                 About
             </a>
+
 
             <a href="#projects">
                 Projects
             </a>
 
+
             <a
                 href="Rahul-Petwal-Resume.pdf"
                 download>
+
                 CV
+
             </a>
 
+
             <a
-                href="Rahul-Petwal-Portfolio-Summary.pdf"
-                download>
-                Portfolio PDF
+                href="#portfolio-summary">
+
+                Portfolio Summary
+
             </a>
+
 
             <a
                 href="https://www.linkedin.com/in/rahulpetwal"
                 target="_blank"
                 rel="noopener noreferrer">
+
                 LinkedIn
+
             </a>
 
+
         </div>
+
 
     </div>
 
