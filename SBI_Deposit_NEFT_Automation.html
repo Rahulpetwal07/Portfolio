@@ -1,0 +1,2536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SBI Deposit & NEFT Automation</title>
+
+<style>
+
+*{
+    box-sizing:border-box
+}
+
+body{
+    margin:0;
+    background:#eee;
+    color:#111;
+    font-family:Arial,Helvetica,sans-serif
+}
+
+.app{
+    max-width:1250px;
+    margin:18px auto;
+    padding:0 12px
+}
+
+.panel{
+    background:#fff;
+    border:1px solid #999;
+    padding:16px;
+    margin-bottom:14px
+}
+
+h1{
+    font-size:21px;
+    margin:0 0 5px
+}
+
+.sub{
+    font-size:12px;
+    color:#555;
+    margin-bottom:15px
+}
+
+.mode{
+    display:flex;
+    gap:8px;
+    margin-bottom:15px
+}
+
+button{
+    border:1px solid #222;
+    background:#fff;
+    color:#111;
+    padding:9px 14px;
+    border-radius:4px;
+    cursor:pointer;
+    font-weight:700
+}
+
+button.active,
+button.primary{
+    background:#111;
+    color:#fff
+}
+
+button:disabled{
+    opacity:.45;
+    cursor:not-allowed
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(4,minmax(150px,1fr));
+    gap:10px
+}
+
+.field label{
+    display:block;
+    font-size:11px;
+    font-weight:700;
+    margin-bottom:4px
+}
+
+.field input{
+    width:100%;
+    padding:9px;
+    border:1px solid #888;
+    background:#fff
+}
+
+.field button{
+    padding:6px 10px;
+    font-size:11px
+}
+
+.section{
+    margin-top:15px;
+    font-size:13px;
+    font-weight:700
+}
+
+.entry{
+    border:1px solid #aaa;
+    margin-top:8px;
+    padding:10px;
+    background:#fafafa
+}
+
+.entry-grid{
+    display:grid;
+    grid-template-columns:
+        1.25fr
+        1.15fr
+        1.15fr
+        1.05fr
+        .85fr
+        .85fr
+        36px;
+    gap:7px;
+    align-items:end
+}
+
+.small label{
+    display:block;
+    font-size:10px;
+    font-weight:700;
+    margin-bottom:3px
+}
+
+.small input{
+    width:100%;
+    padding:7px;
+    border:1px solid #999
+}
+
+.remove{
+    padding:7px 9px
+}
+
+.actions{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-top:14px
+}
+
+.status{
+    font-size:12px;
+    border:1px solid #ccc;
+    background:#fafafa;
+    padding:8px;
+    margin-top:10px
+}
+
+.preview{
+    background:#fff;
+    border:1px solid #999;
+    padding:15px;
+    margin-top:14px;
+    overflow:auto
+}
+
+.sheet{
+    width:100%;
+    border-collapse:collapse;
+    font-family:"Times New Roman",serif;
+    color:#000
+}
+
+.sheet td,
+.sheet th{
+    border:1px solid #000;
+    padding:5px 6px;
+    vertical-align:middle
+}
+
+.sheet .no-border{
+    border:0!important
+}
+
+.center{
+    text-align:center
+}
+
+.right{
+    text-align:right
+}
+
+.bold{
+    font-weight:700
+}
+
+.sheet-title{
+    font-size:15px;
+    font-weight:700;
+    text-align:center
+}
+
+.sheet-desc{
+    font-size:10.5pt;
+    line-height:1.28;
+    text-align:justify
+}
+
+.sheet th{
+    font-weight:700;
+    text-align:center
+}
+
+.sheet .conditions{
+    font-size:9pt;
+    line-height:1.2;
+    text-align:justify;
+    vertical-align:top
+}
+
+.sheet .sign{
+    height:42px;
+    text-align:center;
+    font-size:10pt
+}
+
+.deposit-desc{
+    height:62px
+}
+
+.conditions-row{
+    height:360px
+}
+
+.print-only{
+    display:none
+}
+
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    .grid{
+        grid-template-columns:1fr 1fr
+    }
+
+    .entry-grid{
+        grid-template-columns:1fr 1fr
+    }
+
+    .entry-grid .remove{
+        grid-column:auto
+    }
+
+}
+
+
+/* PRINT */
+
+@media print{
+
+    @page{
+        size:A4 landscape;
+        margin:3.5mm
+    }
+
+    html,
+    body{
+        background:#fff!important;
+        margin:0!important;
+        padding:0!important;
+        color:#000!important
+    }
+
+    .app{
+        max-width:none!important;
+        width:100%!important;
+        margin:0!important;
+        padding:0!important
+    }
+
+    .no-print{
+        display:none!important
+    }
+
+    .preview{
+        display:block!important;
+        border:0!important;
+        padding:0!important;
+        margin:0!important;
+        overflow:visible!important
+    }
+
+    .sheet{
+        width:100%!important;
+        table-layout:fixed!important
+    }
+
+    .sheet td,
+    .sheet th{
+        border:1px solid #000!important;
+        background:#fff!important;
+        color:#000!important;
+        padding:2px 3px!important
+    }
+
+    .sheet-title{
+        font-size:10.5pt!important
+    }
+
+    .sheet-desc{
+        font-size:8pt!important;
+        line-height:1.08!important
+    }
+
+    .conditions{
+        font-size:6.5pt!important;
+        line-height:1.02!important
+    }
+
+    .deposit-desc{
+        height:auto!important
+    }
+
+    .conditions-row{
+        height:auto!important
+    }
+
+    .sign{
+        height:25px!important;
+        font-size:8pt!important
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="app">
+
+<div class="panel no-print">
+
+<h1>SBI Deposit & NEFT Automation</h1>
+
+<div class="sub">
+SBI format preserved. Fill the details, add beneficiaries, then Download Excel or Direct Print.
+</div>
+
+
+<!-- MODE -->
+
+<div class="mode">
+
+<button id="depositMode"
+        class="active"
+        type="button">
+
+SBI ACCOUNT DEPOSIT
+
+</button>
+
+<button id="neftMode"
+        type="button">
+
+NEFT
+
+</button>
+
+</div>
+
+
+<!-- ================= DEPOSIT ================= -->
+
+<div id="depositForm">
+
+<div class="grid">
+
+<div class="field">
+<label>SBI Debit Account No.</label>
+<input id="dDebit" type="text">
+</div>
+
+<div class="field">
+<label>Cheque No.</label>
+<input id="dCheque" type="text">
+</div>
+
+<div class="field">
+<label>Cheque Date</label>
+<input id="dDate" type="date">
+</div>
+
+</div>
+
+
+<div class="section">
+Beneficiary Details
+</div>
+
+
+<div id="depositEntries"></div>
+
+
+<button id="addDeposit"
+        type="button"
+        class="primary">
+
++ Add Beneficiary
+
+</button>
+
+</div>
+
+
+<!-- ================= NEFT ================= -->
+
+<div id="neftForm"
+     style="display:none">
+
+<div class="grid">
+
+<div class="field">
+
+<label>SBI Debit Account No.</label>
+
+<input id="nDebit"
+       type="text">
+
+</div>
+
+
+<div class="field">
+
+<label>Cheque No.</label>
+
+<input id="nCheque"
+       type="text">
+
+</div>
+
+
+<div class="field">
+
+<label>Cheque Date</label>
+
+<input id="nDate"
+       type="date">
+
+</div>
+
+
+<div class="field">
+
+<label>
+Default NEFT Charge Per A/C (₹)
+</label>
+
+<input id="nDefaultCharge"
+       type="number"
+       min="0"
+       step="0.01"
+       value="4.72">
+
+<button id="applyCharge"
+        type="button">
+
+Apply to All A/C
+
+</button>
+
+</div>
+
+</div>
+
+
+<div class="section">
+NEFT Beneficiary Details
+</div>
+
+
+<div id="neftEntries"></div>
+
+
+<button id="addNeft"
+        type="button"
+        class="primary">
+
++ Add Beneficiary
+
+</button>
+
+</div>
+
+
+<!-- ================= ACTIONS ================= -->
+
+<div class="actions">
+
+<button id="generate"
+        class="primary"
+        type="button">
+
+Generate Sheet
+
+</button>
+
+
+<button id="excel"
+        type="button"
+        disabled>
+
+Download Excel
+
+</button>
+
+
+<button id="print"
+        type="button"
+        disabled>
+
+Direct Print
+
+</button>
+
+
+<button id="clear"
+        type="button">
+
+Clear
+
+</button>
+
+</div>
+
+
+<div id="status"
+     class="status">
+
+Select Deposit or NEFT and enter details.
+
+</div>
+
+</div>
+
+
+<!-- ================= PREVIEW ================= -->
+
+<div id="preview"
+     class="preview"
+     style="display:none">
+
+</div>
+
+</div>
+
+
+<script>
+
+
+/* =====================================================
+   BASIC VARIABLES
+===================================================== */
+
+const $ = id =>
+    document.getElementById(id);
+
+
+let mode = "deposit";
+
+let generatedHTML = "";
+
+let generatedType = "";
+
+
+/* =====================================================
+   DATE
+===================================================== */
+
+function todayISO(){
+
+    const d = new Date();
+
+    return d.getFullYear()
+        + "-"
+        + String(d.getMonth()+1).padStart(2,"0")
+        + "-"
+        + String(d.getDate()).padStart(2,"0");
+
+}
+
+
+function displayDate(v){
+
+    if(!v) return "";
+
+    const p = v.split("-");
+
+    return p.length === 3
+        ? p[2] + "-" + p[1] + "-" + p[0]
+        : v;
+
+}
+
+
+/* =====================================================
+   GENERAL HELPERS
+===================================================== */
+
+function esc(v){
+
+    return String(v ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;");
+
+}
+
+
+function num(v){
+
+    const n = parseFloat(
+        String(v ?? "")
+        .replace(/,/g,"")
+    );
+
+    return Number.isFinite(n)
+        ? n
+        : 0;
+
+}
+
+
+function money(n){
+
+    return num(n).toLocaleString(
+        "en-IN",
+        {
+            minimumFractionDigits:2,
+            maximumFractionDigits:2
+        }
+    );
+
+}
+
+
+/* =====================================================
+   AMOUNT IN WORDS
+===================================================== */
+
+function amountWords(amount){
+
+    amount =
+        Math.round(num(amount)*100)/100;
+
+
+    let rupees =
+        Math.floor(amount);
+
+    let paise =
+        Math.round(
+            (amount-rupees)*100
+        );
+
+
+    if(paise === 100){
+
+        rupees++;
+
+        paise=0;
+
+    }
+
+
+    if(rupees === 0 && paise === 0){
+
+        return "Zero Rupees Only";
+
+    }
+
+
+    const ones = [
+
+        "",
+        "One",
+        "Two",
+        "Three",
+        "Four",
+        "Five",
+        "Six",
+        "Seven",
+        "Eight",
+        "Nine",
+        "Ten",
+        "Eleven",
+        "Twelve",
+        "Thirteen",
+        "Fourteen",
+        "Fifteen",
+        "Sixteen",
+        "Seventeen",
+        "Eighteen",
+        "Nineteen"
+
+    ];
+
+
+    const tens = [
+
+        "",
+        "",
+        "Twenty",
+        "Thirty",
+        "Forty",
+        "Fifty",
+        "Sixty",
+        "Seventy",
+        "Eighty",
+        "Ninety"
+
+    ];
+
+
+    function under100(n){
+
+        return n < 20
+            ? ones[n]
+            : tens[Math.floor(n/10)]
+              + (n%10
+                ? " "+ones[n%10]
+                : "");
+
+    }
+
+
+    function under1000(n){
+
+        return n < 100
+
+            ? under100(n)
+
+            : ones[Math.floor(n/100)]
+              + " Hundred"
+              + (
+                  n%100
+                  ? " "+under100(n%100)
+                  : ""
+                );
+
+    }
+
+
+    function indian(n){
+
+        if(n >= 10000000){
+
+            return under100(
+                Math.floor(n/10000000)
+            )
+            + " Crore"
+            + (
+                n%10000000
+                ? " "+indian(n%10000000)
+                : ""
+            );
+
+        }
+
+
+        if(n >= 100000){
+
+            return under100(
+                Math.floor(n/100000)
+            )
+            + " Lakh"
+            + (
+                n%100000
+                ? " "+indian(n%100000)
+                : ""
+            );
+
+        }
+
+
+        if(n >= 1000){
+
+            return under100(
+                Math.floor(n/1000)
+            )
+            + " Thousand"
+            + (
+                n%1000
+                ? " "+indian(n%1000)
+                : ""
+            );
+
+        }
+
+
+        return under1000(n);
+
+    }
+
+
+    let result =
+        indian(rupees)
+        + " Rupees";
+
+
+    if(paise){
+
+        result +=
+            " and "
+            + under100(paise)
+            + " Paise";
+
+    }
+
+
+    return result + " Only";
+
+}
+
+
+/* =====================================================
+   DEPOSIT ROW
+===================================================== */
+
+function addDepositRow(){
+
+    const c =
+        $("depositEntries");
+
+
+    const div =
+        document.createElement("div");
+
+
+    div.className =
+        "entry";
+
+
+    div.innerHTML = `
+
+    <div class="entry-grid">
+
+        <div class="small">
+
+            <label>
+            Beneficiary Name
+            </label>
+
+            <input class="bn">
+
+        </div>
+
+
+        <div class="small">
+
+            <label>
+            SBI Account Number
+            </label>
+
+            <input class="ac">
+
+        </div>
+
+
+        <div class="small">
+
+            <label>
+            Branch Name
+            </label>
+
+            <input class="br">
+
+        </div>
+
+
+        <div class="small">
+
+            <label>
+            Amount (₹)
+            </label>
+
+            <input
+                class="amt"
+                type="number"
+                min="0"
+                step="0.01">
+
+        </div>
+
+
+        <button
+            class="remove"
+            type="button">
+
+            ×
+
+        </button>
+
+    </div>
+
+    `;
+
+
+    div
+        .querySelector(".remove")
+        .onclick = () =>
+            div.remove();
+
+
+    c.appendChild(div);
+
+}
+
+
+/* =====================================================
+   NEFT ROW
+===================================================== */
+
+function addNeftRow(){
+
+    const c =
+        $("neftEntries");
+
+
+    const div =
+        document.createElement("div");
+
+
+    div.className =
+        "entry";
+
+
+    const defaultCharge =
+        num(
+            $("nDefaultCharge").value
+        );
+
+
+    div.innerHTML = `
+
+    <div class="entry-grid">
+
+        <div class="small">
+
+            <label>
+            Beneficiary Name
+            </label>
+
+            <input class="bn">
+
+        </div>
+
+
+        <div class="small">
+
+            <label>
+            Bank Name
+            </label>
+
+            <input class="bank">
+
+        </div>
+
+
+        <div class="small">
+
+            <label>
+            Account Number
+            </label>
+
+            <input class="ac">
+
+        </div>
+
+
+        <div class="small">
+
+            <label>
+            IFSC Code
+            </label>
+
+            <input class="ifsc">
+
+        </div>
+
+
+        <div class="small">
+
+            <label>
+            Amount (₹)
+            </label>
+
+            <input
+                class="amt"
+                type="number"
+                min="0"
+                step="0.01">
+
+        </div>
+
+
+        <div class="small">
+
+            <label>
+            NEFT Charge (₹)
+            </label>
+
+            <input
+                class="charge"
+                type="number"
+                min="0"
+                step="0.01"
+                value="${defaultCharge.toFixed(2)}">
+
+        </div>
+
+
+        <button
+            class="remove"
+            type="button">
+
+            ×
+
+        </button>
+
+    </div>
+
+    `;
+
+
+    div
+        .querySelector(".remove")
+        .onclick = () =>
+            div.remove();
+
+
+    c.appendChild(div);
+
+}
+
+
+/* =====================================================
+   APPLY DEFAULT CHARGE TO ALL
+===================================================== */
+
+function applyDefaultCharge(){
+
+    const charge =
+        num(
+            $("nDefaultCharge").value
+        );
+
+
+    document
+        .querySelectorAll(
+            "#neftEntries .charge"
+        )
+        .forEach(input => {
+
+            input.value =
+                charge.toFixed(2);
+
+        });
+
+}
+
+
+$("applyCharge").onclick =
+    applyDefaultCharge;
+
+
+/* =====================================================
+   MODE
+===================================================== */
+
+function setMode(m){
+
+    mode=m;
+
+
+    $("depositMode")
+        .classList
+        .toggle(
+            "active",
+            m==="deposit"
+        );
+
+
+    $("neftMode")
+        .classList
+        .toggle(
+            "active",
+            m==="neft"
+        );
+
+
+    $("depositForm")
+        .style.display =
+        m==="deposit"
+        ? "block"
+        : "none";
+
+
+    $("neftForm")
+        .style.display =
+        m==="neft"
+        ? "block"
+        : "none";
+
+
+    $("preview")
+        .style.display =
+        "none";
+
+
+    $("excel").disabled=true;
+
+    $("print").disabled=true;
+
+
+    $("status").textContent =
+        m==="deposit"
+
+        ? "SBI Account Deposit mode selected."
+
+        : "NEFT mode selected.";
+
+}
+
+
+$("depositMode").onclick =
+    () => setMode("deposit");
+
+
+$("neftMode").onclick =
+    () => setMode("neft");
+
+
+$("addDeposit").onclick =
+    addDepositRow;
+
+
+$("addNeft").onclick =
+    addNeftRow;
+
+
+/* =====================================================
+   COLLECT DEPOSIT
+===================================================== */
+
+function collectDeposit(){
+
+    return [
+
+        ...document
+        .querySelectorAll(
+            "#depositEntries .entry"
+        )
+
+    ].map(x => ({
+
+        name:
+            x.querySelector(".bn")
+            .value.trim(),
+
+        ac:
+            x.querySelector(".ac")
+            .value.trim(),
+
+        branch:
+            x.querySelector(".br")
+            .value.trim(),
+
+        amount:
+            x.querySelector(".amt")
+            .value
+
+    }));
+
+}
+
+
+/* =====================================================
+   COLLECT NEFT
+===================================================== */
+
+function collectNeft(){
+
+    return [
+
+        ...document
+        .querySelectorAll(
+            "#neftEntries .entry"
+        )
+
+    ].map(x => ({
+
+        name:
+            x.querySelector(".bn")
+            .value.trim(),
+
+        bank:
+            x.querySelector(".bank")
+            .value.trim(),
+
+        ac:
+            x.querySelector(".ac")
+            .value.trim(),
+
+        ifsc:
+            x.querySelector(".ifsc")
+            .value.trim(),
+
+        amount:
+            x.querySelector(".amt")
+            .value,
+
+        charge:
+            x.querySelector(".charge")
+            .value
+
+    }));
+
+}
+
+
+/* =====================================================
+   VALIDATION
+===================================================== */
+
+function validateRows(entries,type){
+
+    if(!entries.length){
+
+        alert(
+            "Add at least one beneficiary."
+        );
+
+        return false;
+
+    }
+
+
+    for(
+        let i=0;
+        i<entries.length;
+        i++
+    ){
+
+        const e =
+            entries[i];
+
+
+        if(type==="deposit"){
+
+            if(
+                !e.name ||
+                !e.ac ||
+                !e.branch ||
+                num(e.amount)<=0
+            ){
+
+                alert(
+                    "Complete all Deposit fields in beneficiary row "
+                    +(i+1)+"."
+                );
+
+                return false;
+
+            }
+
+        }
+
+
+        else{
+
+            if(
+                !e.name ||
+                !e.bank ||
+                !e.ac ||
+                !e.ifsc ||
+                num(e.amount)<=0
+            ){
+
+                alert(
+                    "Complete all NEFT fields in beneficiary row "
+                    +(i+1)+"."
+                );
+
+                return false;
+
+            }
+
+
+            if(num(e.charge)<0){
+
+                alert(
+                    "NEFT charge cannot be negative in beneficiary row "
+                    +(i+1)+"."
+                );
+
+                return false;
+
+            }
+
+        }
+
+    }
+
+
+    return true;
+
+}
+
+
+/* =====================================================
+   DEPOSIT SHEET
+===================================================== */
+
+function depositSheet(rows){
+
+    const debit =
+        esc(
+            $("dDebit")
+            .value.trim()
+        );
+
+
+    const cheque =
+        esc(
+            $("dCheque")
+            .value.trim()
+        );
+
+
+    const date =
+        displayDate(
+            $("dDate").value
+        );
+
+
+    const total =
+        rows.reduce(
+            (s,r) =>
+                s + num(r.amount),
+            0
+        );
+
+
+    const body =
+        rows
+        .map(
+            (r,i) => `
+
+<tr>
+
+<td class="center">
+${i+1}
+</td>
+
+<td>
+${esc(r.name)}
+</td>
+
+<td>
+${esc(r.ac)}
+</td>
+
+<td>
+${esc(r.branch)}
+</td>
+
+<td class="right">
+${money(r.amount)}
+</td>
+
+</tr>
+
+`
+        )
+        .join("");
+
+
+    return `
+
+<table
+    class="sheet"
+    id="sbiSheet"
+>
+
+<colgroup>
+
+<col style="width:8%">
+
+<col style="width:31%">
+
+<col style="width:25%">
+
+<col style="width:21%">
+
+<col style="width:15%">
+
+</colgroup>
+
+
+<tr>
+
+<td
+    colspan="5"
+    class="sheet-title"
+>
+
+SBI ACCOUNT DEPOSIT DETAILS
+
+</td>
+
+</tr>
+
+
+<tr>
+
+<td
+    colspan="5"
+    class="sheet-desc deposit-desc"
+>
+
+<b>
+APPLICATION FOR ACCOUNT TO ACCOUNT DEPOSIT
+</b>
+
+<br><br>
+
+Kindly debit our SBI Account No.
+<b>${debit}</b>
+
+against Cheque No.
+<b>${cheque}</b>
+
+dated
+<b>${date}</b>
+
+and credit the respective beneficiary SBI accounts as per the details given below.
+
+</td>
+
+</tr>
+
+
+<tr class="no-border">
+
+<td class="no-border"></td>
+
+<td class="no-border bold">
+Cheque No.
+</td>
+
+<td class="no-border">
+${cheque}
+</td>
+
+<td class="no-border bold">
+Date
+</td>
+
+<td class="no-border">
+${date}
+</td>
+
+</tr>
+
+
+<tr>
+
+<th>
+S.No.
+</th>
+
+<th>
+Beneficiary Name
+</th>
+
+<th>
+SBI Account Number
+</th>
+
+<th>
+Branch Name
+</th>
+
+<th>
+Amount (₹)
+</th>
+
+</tr>
+
+
+${body}
+
+
+<tr>
+
+<td
+    colspan="4"
+    class="bold"
+>
+
+Total
+
+</td>
+
+<td
+    class="right bold"
+>
+
+${money(total)}
+
+</td>
+
+</tr>
+
+
+<tr>
+
+<td
+    colspan="2"
+    class="bold"
+>
+
+Amount in Words
+
+</td>
+
+<td colspan="3">
+
+${esc(
+    amountWords(total)
+)}
+
+</td>
+
+</tr>
+
+
+<tr>
+
+<td
+    colspan="5"
+    class="sign"
+>
+
+Authorized Signatory
+
+</td>
+
+</tr>
+
+
+</table>
+
+`;
+
+}
+
+
+/* =====================================================
+   NEFT CONDITIONS
+===================================================== */
+
+const conditions = [
+
+"1. I/We understand that reliance will be only on the beneficiary account number for the purpose of affording credit and agree that it is my/our responsibility to provide correct beneficiary account number.",
+
+"2. I/We have checked the funds transfer instructions/particulars given in the application and I/We shall be liable to compensate the participant for any loss arising on account of any error in payment order/amendment/cancellation thereto.",
+
+"3. The transfer is effected for legitimate personal/business needs.",
+
+"4. I/We shall ensure availability of funds properly applicable to the payment order before execution of the payment order by the participant and understand that if the participant executes the transfer order without properly applicable funds being available in my account, I/We shall be bound to pay the participant the amount debited to my account together with charges including interest payable to the participant provided the transfer was effected as per my order.",
+
+"5. I/We understand that in case the payee branch does not have NEFT facility, the funds will be credited back to my/our account as and when it is returned by the beneficiary participant.",
+
+"6. I/We agree that in the event of any delay in the completion of the funds transfer or any loss on account of error in the execution of the funds transfer pursuant to my/our payment order, the participant's liability shall be limited to the extent of the amount involved in the funds transfer plus interest (at the RBI LAF Repo rate plus two percent) for any period of delay.",
+
+"7. I/We also agree to abide by all the other terms and conditions contained in the model agreements/application forms or other terms/rules/regulations governing NEFT transactions as enumerated by RBI.",
+
+"8. Applications/Messages received after the business hours will be sent on the immediate next working day.",
+
+"9. SBI shall not be responsible for any delay in processing of the payment due to RBI RTGS/NEFT system not being available/failure of internal communication system at the recipient bank/branch/incorrect information provided by the remitter/any incorrect credit accorded by the recipient bank/branch due to incorrect information provided by the remitter.",
+
+"10. i) Remitting Branch shall not be liable for any loss or damage resulting from delay in transmission, delivery or non-delivery of electronic message or any mistake, omission or error in transmission or delivery thereof or in encrypting/decrypting the message for any cause whatsoever or from misinterpretation when received or for the action of the destination bank or for any act beyond the control of State Bank of India.<br>ii) If the recipient branch is closed for any reason, the account shall be credited on the immediate next working day."
+
+];
+
+
+/* =====================================================
+   NEFT SHEET
+===================================================== */
+
+function neftSheet(rows){
+
+    const debit =
+        esc(
+            $("nDebit")
+            .value.trim()
+        );
+
+
+    const cheque =
+        esc(
+            $("nCheque")
+            .value.trim()
+        );
+
+
+    const date =
+        displayDate(
+            $("nDate").value
+        );
+
+
+    /* BENEFICIARY TOTAL */
+
+    const beneficiaryTotal =
+        rows.reduce(
+            (s,r) =>
+                s + num(r.amount),
+            0
+        );
+
+
+    /* TOTAL INDIVIDUAL CHARGES */
+
+    const charges =
+        rows.reduce(
+            (s,r) =>
+                s + num(r.charge),
+            0
+        );
+
+
+    /* CHEQUE TOTAL */
+
+    const total =
+        beneficiaryTotal + charges;
+
+
+    const body =
+        rows
+        .map(
+            (r,i) => `
+
+<tr>
+
+<td class="center">
+${i+1}
+</td>
+
+<td>
+${esc(r.name)}
+</td>
+
+<td>
+${esc(r.bank)}
+</td>
+
+<td>
+${esc(r.ac)}
+</td>
+
+<td>
+${esc(r.ifsc)}
+</td>
+
+<td class="right">
+${money(r.amount)}
+</td>
+
+</tr>
+
+`
+        )
+        .join("");
+
+
+    return `
+
+<table
+    class="sheet"
+    id="neftSheet"
+>
+
+<colgroup>
+
+<col style="width:7%">
+
+<col style="width:23%">
+
+<col style="width:17%">
+
+<col style="width:21%">
+
+<col style="width:18%">
+
+<col style="width:14%">
+
+</colgroup>
+
+
+<tr>
+
+<td
+    colspan="6"
+    class="sheet-title"
+>
+
+NEFT PAYMENT DETAILS
+
+</td>
+
+</tr>
+
+
+<tr>
+
+<td
+    colspan="6"
+    class="sheet-desc"
+>
+
+<b>
+APPLICATION FOR NEFT PAYMENT
+</b>
+
+<br><br>
+
+Kindly debit our SBI Account No.
+<b>${debit}</b>
+
+against Cheque No.
+<b>${cheque}</b>
+
+dated
+<b>${date}</b>
+
+and process the following NEFT payments to the respective beneficiary accounts as per the details given below.
+
+<br><br>
+
+Total NEFT charges for
+<b>${rows.length}</b>
+A/C(s)
+=
+<b>₹ ${money(charges)}</b>.
+
+Total cheque amount including applicable NEFT charges:
+<b>₹ ${money(total)}</b>.
+
+</td>
+
+</tr>
+
+
+<tr>
+
+<th>
+S.No.
+</th>
+
+<th>
+Beneficiary Name
+</th>
+
+<th>
+Bank Name
+</th>
+
+<th>
+Account Number
+</th>
+
+<th>
+IFSC Code
+</th>
+
+<th>
+Amount (₹)
+</th>
+
+</tr>
+
+
+${body}
+
+
+<tr>
+
+<td
+    colspan="5"
+    class="right bold"
+>
+
+NEFT Charges
+(Total of all A/C charges)
+
+</td>
+
+<td
+    class="right bold"
+>
+
+${money(charges)}
+
+</td>
+
+</tr>
+
+
+<tr>
+
+<td
+    colspan="5"
+    class="right bold"
+>
+
+Total Cheque Amount
+
+</td>
+
+<td
+    class="right bold"
+>
+
+${money(total)}
+
+</td>
+
+</tr>
+
+
+<tr>
+
+<td
+    colspan="2"
+    class="bold"
+>
+
+Amount in Words
+
+</td>
+
+<td colspan="4">
+
+${esc(
+    amountWords(total)
+)}
+
+</td>
+
+</tr>
+
+
+<tr>
+
+<td
+    colspan="6"
+    class="bold"
+>
+
+Application for RTGS/NEFT Remittance
+
+</td>
+
+</tr>
+
+
+<tr>
+
+<td
+    colspan="6"
+    class="bold"
+>
+
+Conditions for Transfer:
+
+</td>
+
+</tr>
+
+
+<tr>
+
+<td
+    colspan="6"
+    class="conditions conditions-row"
+>
+
+${conditions.join("<br>")}
+
+</td>
+
+</tr>
+
+
+<tr>
+
+<td
+    colspan="2"
+    class="no-border"
+>
+</td>
+
+<td
+    colspan="2"
+    class="sign no-border"
+>
+
+(Signature of the Applicant)
+
+</td>
+
+<td
+    colspan="2"
+    class="no-border"
+>
+</td>
+
+</tr>
+
+
+</table>
+
+`;
+
+}
+
+
+/* =====================================================
+   GENERATE
+===================================================== */
+
+$("generate").onclick = () => {
+
+    try{
+
+        let rows;
+
+        let html;
+
+
+        /* ================= DEPOSIT ================= */
+
+        if(mode==="deposit"){
+
+            rows =
+                collectDeposit();
+
+
+            if(
+                !validateRows(
+                    rows,
+                    "deposit"
+                )
+            ){
+
+                return;
+
+            }
+
+
+            if(
+                !$("dDebit")
+                .value.trim()
+                ||
+                !$("dCheque")
+                .value.trim()
+                ||
+                !$("dDate").value
+            ){
+
+                alert(
+                    "Enter SBI Debit Account No., Cheque No. and Cheque Date."
+                );
+
+                return;
+
+            }
+
+
+            html =
+                depositSheet(rows);
+
+
+            generatedType =
+                "SBI_Deposit";
+
+        }
+
+
+        /* ================= NEFT ================= */
+
+        else{
+
+            rows =
+                collectNeft();
+
+
+            if(
+                !validateRows(
+                    rows,
+                    "neft"
+                )
+            ){
+
+                return;
+
+            }
+
+
+            if(
+                !$("nDebit")
+                .value.trim()
+                ||
+                !$("nCheque")
+                .value.trim()
+                ||
+                !$("nDate").value
+            ){
+
+                alert(
+                    "Enter SBI Debit Account No., Cheque No. and Cheque Date."
+                );
+
+                return;
+
+            }
+
+
+            html =
+                neftSheet(rows);
+
+
+            generatedType =
+                "NEFT";
+
+        }
+
+
+        generatedHTML =
+            html;
+
+
+        $("preview").innerHTML =
+            html;
+
+
+        $("preview").style.display =
+            "block";
+
+
+        $("excel").disabled =
+            false;
+
+
+        $("print").disabled =
+            false;
+
+
+        $("status").textContent =
+            "Sheet generated successfully. Format is kept in SBI style.";
+
+    }
+
+
+    catch(e){
+
+        alert(
+            "Error: " + e.message
+        );
+
+    }
+
+};
+
+
+/* =====================================================
+   EXCEL
+===================================================== */
+
+function excelDocument(inner){
+
+    return `
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<style>
+
+@page{
+    size:landscape;
+    margin:.35in
+}
+
+body{
+    font-family:"Times New Roman",serif;
+    color:#000
+}
+
+table{
+    border-collapse:collapse;
+    width:100%
+}
+
+td,
+th{
+    border:1px solid #000;
+    padding:5px 6px;
+    vertical-align:middle
+}
+
+.no-border{
+    border:0!important
+}
+
+.center{
+    text-align:center
+}
+
+.right{
+    text-align:right
+}
+
+.bold{
+    font-weight:bold
+}
+
+.sheet-title{
+    font-size:15pt;
+    font-weight:bold;
+    text-align:center
+}
+
+.sheet-desc{
+    font-size:10.5pt;
+    line-height:1.28;
+    text-align:justify
+}
+
+.sheet th{
+    font-weight:bold;
+    text-align:center
+}
+
+.conditions{
+    font-size:9pt;
+    line-height:1.2;
+    text-align:justify;
+    vertical-align:top
+}
+
+.sign{
+    height:42px;
+    text-align:center;
+    font-size:10pt
+}
+
+</style>
+
+</head>
+
+<body>
+
+${inner}
+
+</body>
+
+</html>
+
+`;
+
+}
+
+
+/* =====================================================
+   DOWNLOAD EXCEL
+===================================================== */
+
+$("excel").onclick = () => {
+
+    if(!generatedHTML){
+
+        alert(
+            "Generate the sheet first."
+        );
+
+        return;
+
+    }
+
+
+    const excelHTML =
+        excelDocument(
+            generatedHTML
+        );
+
+
+    const blob =
+        new Blob(
+            [
+                "\ufeff",
+                excelHTML
+            ],
+            {
+                type:
+                "application/vnd.ms-excel"
+            }
+        );
+
+
+    const url =
+        URL.createObjectURL(blob);
+
+
+    const a =
+        document.createElement("a");
+
+
+    a.href =
+        url;
+
+
+    a.download =
+        generatedType
+        + "_"
+        + todayISO()
+        + ".xls";
+
+
+    a.style.display =
+        "none";
+
+
+    document.body.appendChild(a);
+
+
+    a.click();
+
+
+    setTimeout(
+        () => {
+
+            URL.revokeObjectURL(url);
+
+            a.remove();
+
+        },
+        1000
+    );
+
+};
+
+
+/* =====================================================
+   DIRECT PRINT
+===================================================== */
+
+$("print").onclick = () => {
+
+    if(!generatedHTML){
+
+        alert(
+            "Generate the sheet first."
+        );
+
+        return;
+
+    }
+
+
+    const w =
+        window.open(
+            "",
+            "_blank",
+            "width=1200,height=850"
+        );
+
+
+    if(!w){
+
+        alert(
+            "Print window was blocked. Allow pop-ups for this HTML file and try again."
+        );
+
+        return;
+
+    }
+
+
+    const css = `
+
+@page{
+    size:A4 landscape;
+    margin:3.5mm
+}
+
+*{
+    box-sizing:border-box
+}
+
+html,
+body{
+    margin:0;
+    padding:0;
+    background:#fff;
+    color:#000;
+    font-family:"Times New Roman",serif;
+    width:100%;
+    -webkit-print-color-adjust:economy;
+    print-color-adjust:economy
+}
+
+table{
+    border-collapse:collapse;
+    width:100%;
+    table-layout:fixed
+}
+
+td,
+th{
+    border:1px solid #000;
+    padding:1.7px 2.5px;
+    vertical-align:middle;
+    background:#fff;
+    color:#000
+}
+
+.no-border{
+    border:0!important
+}
+
+.center{
+    text-align:center
+}
+
+.right{
+    text-align:right
+}
+
+.bold{
+    font-weight:bold
+}
+
+.sheet-title{
+    font-size:10pt;
+    font-weight:bold;
+    text-align:center
+}
+
+.sheet-desc{
+    font-size:7.7pt;
+    line-height:1.05;
+    text-align:justify
+}
+
+.sheet th{
+    font-weight:bold;
+    text-align:center
+}
+
+.conditions{
+    font-size:6.2pt;
+    line-height:1.0;
+    text-align:justify;
+    vertical-align:top
+}
+
+.sign{
+    height:23px;
+    text-align:center;
+    font-size:7.5pt
+}
+
+`;
+
+
+    w.document.open();
+
+
+    w.document.write(
+
+        '<!doctype html>' +
+
+        '<html>' +
+
+        '<head>' +
+
+        '<meta charset="UTF-8">' +
+
+        '<title>' +
+        generatedType +
+        '</title>' +
+
+        '<style>' +
+        css +
+        '</style>' +
+
+        '</head>' +
+
+        '<body>' +
+
+        generatedHTML +
+
+        '</body>' +
+
+        '</html>'
+
+    );
+
+
+    w.document.close();
+
+
+    w.focus();
+
+
+    setTimeout(
+        () => {
+
+            w.print();
+
+        },
+        500
+    );
+
+};
+
+
+/* =====================================================
+   CLEAR
+===================================================== */
+
+$("clear").onclick = () => {
+
+    $("depositEntries")
+        .innerHTML = "";
+
+
+    $("neftEntries")
+        .innerHTML = "";
+
+
+    $("dDebit").value =
+        "";
+
+    $("dCheque").value =
+        "";
+
+    $("dDate").value =
+        todayISO();
+
+
+    $("nDebit").value =
+        "";
+
+    $("nCheque").value =
+        "";
+
+    $("nDate").value =
+        todayISO();
+
+
+    $("nDefaultCharge").value =
+        "4.72";
+
+
+    generatedHTML =
+        "";
+
+
+    generatedType =
+        "";
+
+
+    $("preview")
+        .style.display =
+        "none";
+
+
+    $("excel").disabled =
+        true;
+
+
+    $("print").disabled =
+        true;
+
+
+    addDepositRow();
+
+    addNeftRow();
+
+
+    $("status").textContent =
+        "Cleared. Ready for a new sheet.";
+
+};
+
+
+/* =====================================================
+   STARTUP
+===================================================== */
+
+$("dDate").value =
+    todayISO();
+
+
+$("nDate").value =
+    todayISO();
+
+
+addDepositRow();
+
+
+addNeftRow();
+
+</script>
+
+</body>
+</html>
