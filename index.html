@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dhandhanya Smart Voucher</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="no-print admin-bar">
+        Voucher No: <input type="text" id="v-no" style="width: 60px;">
+        <button class="print-btn" onclick="handlePrint()">Print Voucher</button>
+    </div>
+
+    <div class="voucher-wrapper">
+        <div class="voucher-container">
+            <header class="main-header">
+                <div class="h-left">THE SIGN OF FAITH</div>
+                <div class="h-center">
+                    <h1 class="company-name">DHANDHANYA MICRO FINANCE PVT LTD</h1>
+                    <div class="title-box">PAYMENT VOUCHER</div>
+                    <div class="branch-line">Branch: <input type="text" class="b-bot" style="width:120px"></div>
+                </div>
+                <div class="h-right">
+                    Date: <input type="text" id="v-day" class="d-in">/<input type="text" id="v-month" class="d-in">/<input type="text" id="v-year" class="d-in" style="width:10mm">
+                </div>
+            </header>
+
+            <div class="details-grid">
+                <div class="outline-box">
+                    <div class="box-header">PAYEE DETAILS</div>
+                    <div class="box-body">
+                        <div class="f-row"><label>Name</label>:<input type="text" id="v-payee-name" class="b-bot" list="payee-options" oninput="checkAutoFill(this.value)"><datalist id="payee-options"></datalist></div>
+                        <div class="f-row"><label>A/C No.</label>:<input type="text" id="v-payee-acc" class="b-bot"></div>
+                        <div class="f-row"><label>IFSC</label>:<input type="text" id="v-payee-ifsc" class="b-bot"></div>
+                        <div class="f-row"><label>Bank</label>:<input type="text" id="v-payee-bank" class="b-bot"></div>
+                    </div>
+                </div>
+                <div class="outline-box">
+                    <div class="box-header">PAYMENT DETAILS</div>
+                    <div class="box-body">
+                        <div class="f-row">Purpose: <input type="text" id="v-purpose" class="b-bot"></div>
+                        <div class="f-row" style="margin-top:4px"><label>Amount (₹)</label>:<input type="text" id="v-amt-num" class="b-bot bold" readonly></div>
+                        <div class="f-row"><label>In Words</label>:<textarea id="v-amt-words" class="b-bot" readonly></textarea></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="financial-grid">
+                <div class="table-col">
+                    <table class="p-table">
+                        <thead><tr><th>PARTICULARS</th><th>AMOUNT (₹)</th></tr></thead>
+                        <tbody>
+                            <tr><td>Payment Amount</td><td><input type="number" class="t-in calc-in" id="main-amt"></td></tr>
+                            <tr><td>Processing Charges</td><td><input type="number" class="t-in calc-in"></td></tr>
+                            <tr><td>GST</td><td><input type="number" class="t-in calc-in"></td></tr>
+                            <tr><td>TDS (Deduction -)</td><td><input type="number" class="t-in calc-in"></td></tr>
+                            <tr><td>Other Charges</td><td><input type="number" class="t-in calc-in"></td></tr>
+                            <tr><td>Adjustment (-)</td><td><input type="number" class="t-in calc-in"></td></tr>
+                            <tr class="t-row"><td style="text-align:right;padding-right:4px">TOTAL</td><td><input type="text" id="v-calc-total" class="t-in bold" readonly></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="type-col">
+                    <div class="outline-box" style="height:100%">
+                        <div class="box-header">PAYMENT TYPE</div>
+                        <div class="p-types">
+                            <label><input type="checkbox"> Cash</label> <label><input type="checkbox"> Chq</label> <label><input type="checkbox" checked> NEFT</label>
+                        </div>
+                        <div class="rem-fields">
+                            <div class="f-row">Txn/Chq:<input type="text" class="b-bot"></div>
+                            <div class="f-row">Ref No:<input type="text" class="b-bot"></div>
+                            <div class="f-row">Remarks:<input type="text" class="b-bot"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="signatures">
+                <div class="sig-box" style="border-right:1px solid #000">
+                    <div class="sig-role">PREPARED BY</div>
+                    <div class="sig-line"></div>
+                    <div class="sig-inf">Name: <input type="text" class="s-in"><br>Date: <input type="text" id="v-prep-date" class="s-in"></div>
+                </div>
+                <div class="sig-box">
+                    <div class="sig-role">AUTHORIZED BY</div>
+                    <div class="sig-line"></div>
+                    <div class="sig-inf">Name: <input type="text" class="s-in"><br>Date: <input type="text" class="s-in"></div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="master_data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
